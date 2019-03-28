@@ -22,22 +22,22 @@ Certain assumptions must be made before creating the program.
 2. We'll also be assuming that the waiters and staff react and respond to prompts and notifications from the program and take any necessary measures and update their input to the program.
 3. It will be assumed that the restaurant is an average sized family-owned Deli.
 
-The program when applied will be able to remove the need of manually writing table bookings on a paperback register. It will also be able to suggest suitable tables for different sizes of groups according to table vacancies. If no vacancies are available at the requested time it suggests its own time for the customer to arrive.
-The program will also allow easy cancellation of booking as well as be able to keep track of customers who are late beyond a certain period and opens the table for new booking.
-It makes sure that no group overstay their reservation by tracking the time the group arrives and separately keeps track of each tables orders so that it can effectively process the billing of each table.
-The program can be enabled to keep track of certain group patterns with calendar date and be able to make suggestions on the seating arrangement of table in future. This would make seat allocation more efficient as the program will be able to change over time.
-The program might also be able to solve the issue of overlapping booking. 
+The program is a table allocation program with enabled features such allocation, reservation and cancelling. It is intended to remove the unnecessary effort in finding appropiate tables for various groups of different sizes.
+
+The program will allow staff to easily allocate tables and reservations as they themselves will no longer be required to sort and suggest available tables.
+The staff will also have the comfort of relying on the program to handle the billing of each table and will no longer have to keep a manual paper-back version of each tables receipt.
+staff can exploit the benifit of do-and-forget faeture of the program as they will no longer be required to keep tabs on the cancellation of reservations or the sitting durations of each group of customers.
 
 ## Features
 the features of program are listed as such:
-1. The program will be able to sort through the available tables and find the most suitable table amongst the available tables within the suggested timeframe.
-2. The program will be able to allocate a status tag to the tables i.e. booked, occupied, clear. The status can be viewed and changed both manually and automatically.
-3. The time duration a specific group occupies a table can be measured. This will allow the waiters to be notified in case any group overstays their registration.
-4. Placement of booking as well as cancellation of booking will be handled by the program, this frees up the necessary effort required to keep tabs on the booking arrangements.
-5. The bills of each table can be noted and continuously appended making room for more orders. This also allows safety from the error of having orders mixed up or miscounted.
-6. There are extra features such as measuring the number of groups that frequently occur each season so that it can suggest a table layout for each season.
-   - The table and seats allocation can be updated manually in the program.
-7. Extra features include: 
-   - The cancellation of a groups booking if they are late beyond a specific period.
-   - Allowing the option of split tables i.e. offering more than one table to large groups. The tables are preferably close to one another within the restaurant.
-   - measure the sales of certain dishes and calculate its success rate varying with season.
+- Sort through the available tables and find the most suitable table amongst the available tables within the suggested timeframe.
+- Allocate a status tag to the tables i.e. booked, occupied, clear. The status can be viewed and changed both manually and automatically.
+- The time duration a specific group occupies a table can be measured notifying staff in case of overstay of registration.
+- Placement and cancellation of booking will be handled by program.
+- Bills of each table can be noted and continuously appended.
+- Extra features such as measuring the number of groups that frequently occur each season so that it can suggest a table layout for each season.
+  - The table and seats allocation can be updated manually in the program.
+- Some extra features include: 
+  - The cancellation of a groups booking if they are late beyond a specific period.
+  - Allowing the option of split tables i.e. offering more than one table to large groups. The tables are preferably close to one another within the restaurant.
+  - measure the sales of certain dishes and calculate its success rate varying with season.
