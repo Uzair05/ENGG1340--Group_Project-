@@ -1,7 +1,7 @@
 # ENGG1340--Group_Project-
 ENGG1340-(Group_Project) By Uzair and Tridib
 
-
+## Introduction
 Our project is the group project assigned to us by the University of Hong Kong course code ENGG1340.
 For this project we chose to create a **Table Managment System** and try to work out solutions for an actual restaurant.
 
