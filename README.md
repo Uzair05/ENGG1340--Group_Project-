@@ -37,3 +37,9 @@ Our program will be able to complete the following tasks:
 4. A notification system to inform the waiter about customers who take longer than a specified amount of time (preferably 2 hours).
 5. Changes in number of tables according to changes in the customer base.
 6. Tentatively design an online form which customers can fill in to book their table and even order food so that they can have the food served as soon as they arrive. Penalty will be imposed if the customer fails to show up.
+7. Implement a reward system for loyal customers to ensure their continued support.
+
+
+## Conclusion
+
+Most restaurants in these modern days are suffering from a lack of cheap and available manpower and we aim to lift their burden. Through our project, we wish to come up with an efficient, secure, and transparent process to give both restaurant owners and customers a seamless experience. Our project will aim to solve as many problems as is encountered in restaurants these days and will also adapt to changes in customer needs and trends taking into account various factors like seasonality, etc. 
