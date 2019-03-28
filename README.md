@@ -24,20 +24,24 @@ The family-owned Deli restaurants need a system which would allow them to effici
 7. Some restaurants may require extra functionality such:
    - The ability to keep track of regulars and the times they usually frequent.
    - The ability to see the trend and success rate of each dish, maybe also allow the customers to rate their experience and give feed back.
+   - The ability to track trend of sales according to calendar dates.
    - The ability to start making preparations for the dish requested by the customers a period before He/She arrives so that the time taken to serve the meal could be reduced.
-
+8. the restaurant may also have a problem with trolls or people who make a booking and do not show up. This could be an issue if the customer books a large number of tables and did not show up as these tables wouldn't be able to be booked by other customers.
 
 ## Functionality
-
 Our program will be able to complete the following tasks:
 
-1. The availability of a table.
-2. A system to book a table and a penalty system imposed for when the customer fails to show up.
-3. To assign a group of customers the minimum number of seats for a table when the tables for that particular number are occupied.
-4. A notification system to inform the waiter about customers who take longer than a specified amount of time (preferably 2 hours).
-5. Changes in number of tables according to changes in the customer base.
-6. Tentatively design an online form which customers can fill in to book their table and even order food so that they can have the food served as soon as they arrive. Penalty will be imposed if the customer fails to show up.
-7. Implement a reward system for loyal customers to ensure their continued support.
+1. The Program would be able to book and clear tables.
+2. The Program would be able to check the availability of tables and make suggestion if any shortcoming occurs.
+3. The Program would be able to handle the billing of tables and/or individual customers.
+4. The Program would be able to allow room for customer to cancel the booking before a certain time period so that it can be made available for other customers.
+5. The Program would be able to take note of expected arrival time of customer/s and may clear the table for booking if the customer is late beyond a certain period of time.
+6. The Program would be able to take note of trends of sales and make take note the behaviour of regulars allowing for better service.
+7. The Program would be able to allow customers the option to opt for a "prepared meal" i.e. the meal preparation occurs a short while before they arrive so that they can wait for less time.
+8. The Program would be able to exhibit extra features such as tracking the success and popularity of certain dishes.
+9. The Program would be able to implement a reward system for loyal customers to ensure their continued support.
+10. The Program would be able to allow the Restaurant to change the setting of the program such as toggling the extra-features and changing the number of tables and seats of each respective table.
+11. The Program would be able to implement a penalty or fine to no show customers who book large number of tables or book a "prepared meal" and didnt show up.
 
 
 ## Conclusion
