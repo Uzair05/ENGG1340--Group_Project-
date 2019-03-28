@@ -11,10 +11,9 @@ The goal of this project is to automate as many functions as possible to reduce 
 ## Problem Statement
 The restaurant in question currently runs its business as a family-owned Deli. They receive customers as well as allow for booking of tables for customers. 
 The restaurant operates by normally allowing customer/s to book a table in their restaurant as well as allowing walk-in customers.
-The management often complain of the laborious need to manage booking via the traditional phone booking as the number of customers grow. They also must manage the cancellation of bookings as well as the billing of the individual tables.
-There are also complaints that the management must put in extra effort in sorting and suggesting tables to groups of odd numbers of customers.
-Another issue found is that the management must actively keep track of the time a certain group has been occupying their table. They must also stay aware of the seasonal trends and behavior of customers during such seasons, as such they regularly need to update their database on the number seats of each rearranged table.
-They must also make room for errors such two members of the same group making overlapping bookings etc. And they need to improve their efficiency in their ability to keep track of the orders of each table so that their bill doesn't get mixed up or miscounted.
+The management often complain of the laborious need to manage booking via the traditional phone booking as the required effort in having to cancel certain bookings and manage the billings of each table.
+The management also complain of the extra effort required to sort through and suggest tables of appropriate sizes to different groups. This job of allocating tables can become more difficult due to the seasonal changes in table sizes and placements.
+Other issues may include the mundane tasks such as having to keep a record of the time a certain group spends on any table to prevent them from overstaying their reservation.
 
 ## Problem Setting
 Certain assumptions must be made before creating the program.
