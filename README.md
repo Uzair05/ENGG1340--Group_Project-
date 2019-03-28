@@ -22,11 +22,11 @@ Certain assumptions must be made before creating the program.
 2. We'll also be assuming that the waiters and staff react and respond to prompts and notifications from the program and take any necessary measures and update their input to the program.
 3. It will be assumed that the restaurant is an average sized family-owned Deli.
 
-The program is a table allocation program with enabled features such allocation, reservation and cancelling. It is intended to remove the unnecessary effort in finding appropiate tables for various groups of different sizes.
+The program is a table allocation program with enabled features such allocation, reservation and cancelling. It is intended to remove the unnecessary effort in finding appropriate tables for various groups of different sizes.
 
 The program will allow staff to easily allocate tables and reservations as they themselves will no longer be required to sort and suggest available tables.
 The staff will also have the comfort of relying on the program to handle the billing of each table and will no longer have to keep a manual paper-back version of each tables receipt.
-staff can exploit the benifit of do-and-forget faeture of the program as they will no longer be required to keep tabs on the cancellation of reservations or the sitting durations of each group of customers.
+staff can exploit the benefit of do-and-forget feature of the program as they will no longer be required to keep tabs on the cancellation of reservations or the sitting durations of each group of customers.
 
 ## Features
 the features of program are listed as such:
