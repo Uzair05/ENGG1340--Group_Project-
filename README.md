@@ -9,6 +9,8 @@ We tried to model our project based on what we perceived would be the main issue
 The goal of this project is to automate as many functions as possible to reduce the pressure on restaurant staff and create a sense of efficiency.
 Alongside the suggested problems given to us by the University we plan to add more functions and capability and allow for a flexible programming to enable a more customizable program. In essence each Deli manager will independantly be able to modify their Program *without the need of knowledge in programming or having to hire programmers.*
 
+## Functionality
+
 Our program will be able to complete the following tasks:
 
 1. The availability of a table.
