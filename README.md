@@ -3,7 +3,7 @@ ENGG1340-(Group_Project) By @Uzair05 and @tridib13
 
 ## Introduction
 Our project is the group project assigned to us by the University of Hong Kong course code ENGG1340.
-For this project we chose to create a **Table Management System** and try to work out solutions for an actual restaurant.
+For this project we chose to create a **Table Management System** and tried to work out solutions for an actual restaurant.
 
 We tried to model our project based on what we perceived would be the main issues faced by real life restaurants.
 The goal of this project is to automate as many functions as possible to reduce the pressure on restaurant staff and create a sense of efficiency.
@@ -11,7 +11,7 @@ The goal of this project is to automate as many functions as possible to reduce 
 ## Problem Statement
 The restaurant in question currently runs its business as a family-owned Deli. They receive customers as well as allow for booking of tables for customers. 
 The restaurant operates by normally allowing customer/s to book a table in their restaurant as well as allowing walk-in customers.
-The management often complain of the laborious need to manage booking via the traditional phone booking as the required effort in having to cancel certain bookings and manage the billings of each table.
+The management often complain of the cumbersome need to manage bookings via the traditional phone booking system as the required effort in having to cancel certain bookings and manage the billings of each table.
 The management also complain of the extra effort required to sort through and suggest tables of appropriate sizes to different groups. This job of allocating tables can become more difficult due to the seasonal changes in table sizes and placements.
 Other issues may include the mundane tasks such as having to keep a record of the time a certain group spends on any table to prevent them from overstaying their reservation.
 
