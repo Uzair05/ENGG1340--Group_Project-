@@ -17,11 +17,11 @@ Other issues may include the mundane tasks such as having to keep a record of th
 
 ## Problem Setting
 Certain assumptions must be made before creating the program.
-1. We need to assume that the restaurant *has the necessary computer system and OS to run the program*.
-2. We'll also be assuming that the *waiters and staff react and respond to prompts and notifications from the program* and take any necessary measures and update their input to the program.
-3. It will be assumed that the restaurant is an *average sized family-owned Deli*.
-4. We assume that the deli *has a satisfactory customer base* at present.
-5. We assume that the deli *has the sufficient manpower to operate the program*.
+1. We need to assume that the restaurant ***has the necessary computer system and OS to run the program***.
+2. We'll also be assuming that the ***waiters and staff react and respond to prompts and notifications from the program*** and take any necessary measures and update their input to the program.
+3. It will be assumed that the restaurant is an ***average sized family-owned Deli***.
+4. We assume that the deli ***has a satisfactory customer base*** at present.
+5. We assume that the deli ***has the sufficient manpower to operate the program***.
 
 The program is a table allocation program with enabled features such allocation, reservation and cancelling. It is intended to remove the unnecessary effort in finding appropriate tables for various groups of different sizes.
 
@@ -31,14 +31,14 @@ Staff can exploit the benefit of do-and-forget feature of the program as they wi
 
 ## Features
 The features of program are listed as such:
-- Sort through the available tables and *find the most suitable table amongst the available tables within the suggested timeframe*.
-- *Allocate a status tag to the tables i.e. booked, occupied, clear*. The status can be viewed and changed both manually and automatically.
-- *The time duration a specific group occupies a table can be measured* by notifying staff in case of overstay of registration.
-- *Placement and cancellation of booking* will be handled by program.
-- *Bills of each table can be noted* and continuously appended.
-- Extra features such as *measuring the number of groups that frequently occur each season so that it can suggest a table layout for each season*.
-  - The *table and seats allocation can be updated manually* in the program.
+- Sort through the available tables and ***find the most suitable table amongst the available tables within the suggested timeframe***.
+- ***Allocate a status tag to the tables i.e. booked, occupied, clear***. The status can be viewed and changed both manually and automatically.
+- ***The time duration a specific group occupies a table can be measured*** by notifying staff in case of overstay of registration.
+- ***Placement and cancellation of booking*** will be handled by program.
+- ***Bills of each table can be noted*** and continuously appended.
+- Extra features such as ***measuring the number of groups that frequently occur each season so that it can suggest a table layout for each season***.
+  - The ***table and seats allocation can be updated manually*** in the program.
 - Some extra features include: 
-  - The *cancellation of a groups booking if they are late* beyond a specific period.
-  - Allowing the option of *split tables i.e. offering more than one table to large groups*. The tables are preferably close to one another within the restaurant.
-  - measure the *sales of certain dishes and calculate its success rate* varying with season.
+  - The ***cancellation of a groups booking if they are late*** beyond a specific period.
+  - Allowing the option of ***split tables i.e. offering more than one table to large groups***. The tables are preferably close to one another within the restaurant.
+  - measure the ***sales of certain dishes and calculate its success rate*** varying with season.
