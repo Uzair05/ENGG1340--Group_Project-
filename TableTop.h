@@ -2,7 +2,6 @@
 #define TableTop_H
 
 #include <string>
-using namespace std;
 
 struct table{
 
