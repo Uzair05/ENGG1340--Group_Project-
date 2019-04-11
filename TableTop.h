@@ -1,5 +1,15 @@
+#ifndef TableTop_H
+#define TableTop_H
+
+#include <string>
+using namespace std;
+
 struct table{
-//string Id="";
-int NumberOfSeats=0;
-bool Occupied=false;
+
+std::string ID;
+int NumberOfSeats;
+bool Occupied;
+
 };
+
+#endif

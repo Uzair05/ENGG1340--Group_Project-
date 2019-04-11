@@ -4,13 +4,14 @@
 from within the same directory*/
 using namespace std;
 
+
 int main(){
   table deli[15]={};
-  //deli[0].Id = "Alcatraz";
+  deli[0].ID = "Mine";
   deli[0].NumberOfSeats=15;
   deli[0].Occupied=true;
 
-  cout<<deli[0].NumberOfSeats<<endl;
+  cout<<deli[0].ID<<endl;
 
   return 0;
 }
