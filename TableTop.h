@@ -5,9 +5,9 @@
 
 struct table{
 
-std::string ID;
-int NumberOfSeats;
-bool Occupied;
+std::string ID="";
+int NumberOfSeats=0;
+bool Occupied=false;
 
 };
 
