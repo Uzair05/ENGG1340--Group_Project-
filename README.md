@@ -9,7 +9,7 @@ We tried to model our project based on what we perceived would be the main issue
 The goal of this project is to automate as many functions as possible to reduce the pressure on restaurant staff and create a sense of efficiency.
 
 ## Problem Statement
-The restaurant in question currently runs its business as a family-owned Deli. They receive customers as well as allow for booking of tables for customers. 
+The restaurant in question currently runs its business as a family-owned Deli. They receive customers as well as allow for booking of tables for customers.
 The restaurant operates by normally allowing customer/s to book a table in their restaurant as well as allowing walk-in customers.
 The management often complain of the cumbersome need to manage bookings via the traditional phone booking system as the required effort in having to cancel certain bookings and manage the billings of each table.
 The management also complain of the extra effort required to sort through and suggest tables of appropriate sizes to different groups. This job of allocating tables can become more difficult due to the seasonal changes in table sizes and placements.
@@ -38,7 +38,13 @@ The features of program are listed as such:
 - ***Bills of each table can be noted*** and continuously appended.
 - Extra features such as ***measuring the number of groups that frequently occur each season so that it can suggest a table layout for each season***.
   - The ***table and seats allocation can be updated manually*** in the program.
-- Some extra features include: 
+- Some extra features include:
   - The ***cancellation of a groups booking if they are late*** beyond a specific period.
   - Allowing the option of ***split tables i.e. offering more than one table to large groups***. The tables are preferably close to one another within the restaurant.
   - measure the ***sales of certain dishes and calculate its success rate*** varying with season.
+
+
+## Things We Could Have Done Better
+- Made a Proper GUI
+- Used MySql or some database software to enhance features of the Software. for example **finding a table with a window seat**
+- Had properly drawn out a map to help coordinate with teammates.
