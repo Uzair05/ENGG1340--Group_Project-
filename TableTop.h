@@ -8,7 +8,9 @@ struct table{
 std::string ID="";
 int NumberOfSeats=0;
 bool Occupied=false;
-
+string BookingTime;
+string SittingTime;
+string Customer;
 };
 
 #endif

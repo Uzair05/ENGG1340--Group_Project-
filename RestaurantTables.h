@@ -10,6 +10,7 @@ class RTables{
 private:
   table tab;
 public:
+
   string getID(){
     return tab.ID;
   }
@@ -19,6 +20,20 @@ public:
   bool getIsOccupied(){
     return tab.Occupied;
   }
+  string getBookingTime()
+  {
+    return tab.BookingTime;
+  }
+  string getSittingTime()
+  {
+    return tab.SittingTime;
+  }
+  string getCustomerName()
+  {
+    return tab.Customer;
+  }
+
+
   void setID(string s){
     tab.ID=s;
   }
@@ -30,6 +45,18 @@ public:
   }
   void setOccupied(bool b){
     tab.Occupied=b;
+  }
+  void setBookingTime(string bookingtime)
+  {
+    tab.BookingTime=bookingtime;
+  }
+  void setSettingTime(string sittingtime)
+  {
+    tab.SittingTime=sittingtime;
+  }
+  void setCustomerName(string customer)
+  {
+    tab.Customer=customer;
   }
 };
 
