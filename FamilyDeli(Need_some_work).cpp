@@ -37,17 +37,20 @@ int main(){
     PresentOption();
     cin>>command;
     switch(command){
-      case (1):
+      case(1):
       RTables* a = new RTables[getsize()];
       CreateFlag=true;
       LoadTables(a);
       break;
-      case (2):
+      case(2):
       ReSetTables();
       break;
 
-      case (10):
+      case(10):
       cout<<"Exit has been triggered"<<endl;
+      if (CreateFlag){
+        delete[] a;
+      }
       break;
       default:
       cout<<"Incorrect Command"<<endl;
@@ -56,8 +59,6 @@ int main(){
   }while(command!=10);
 
 
-  if (CreateFlag){
-    delete[] a;
-  }
+
   return 0;
 }
