@@ -2,7 +2,8 @@
 #define Alert_AID_H
 
 /*I made this to hadle all our alerts without
-needing to continuously refer to the proper format*/
+needing to continuously refer to the proper 
+format*/
 
 #include <string>
 #include <iostream>

@@ -1,4 +1,4 @@
-#ifndef TFunctions_H
+#ifndef TFunctions_H /*This name must be unique for all .h files :P*/
 #define TFunctions_H
 
 #include <iostream>
@@ -6,6 +6,9 @@
 #include "RestaurantTables.h"
 #include "alert_aid.h"
 using namespace std;
+
+/*I made this to handle all the functions
+This needs to be further extended*/
 
 void OccupyTable(RTables a[],string ID, int size){
   bool failflag=true;
