@@ -1,50 +1,61 @@
-#ifndef RTables_H
-#define RTables_H
+#ifndef TFunctions_H
+#define TFunctions_H
 
 #include <iostream>
 #include <string>
 #include "RestaurantTables.h"
-#include "TableTop.h"
-
+#include "alert_aid.h"
 using namespace std;
 
-void RTables::OccupyTable()
-{
-  string id;
-  int tablenumber;
-
-  cin>>id;//inputting table id
-  cin>>tablenumber;//inputting table number; table numbers start with 0
-
-  setID(tablenumber,id);//setting table id as inputted id
-
-  if(getNofSeats(getID)<=setNofSeats && getIsOccupied(getID)==0) //if number of seats required is less than or equal to the seats of that table and if it is not occupied.
-  tab[tablenumber].Occupied=true; //set occupied to true if table is available
-
-  else
-
-  AlertBox("No such table available at this moment");
-  //give an alert if table is not available
+void OccupyTable(RTables a[],string ID, int size){
+  bool failflag=true;
+  for(int i=0;i<size;++i){
+    if (a[i].getID()==ID){
+      failflag=false;
+      if (!(a[i].getIsOccupied())){
+        a[i].setOccupied(true);
+        alert("Table has been occupied","OccupyTable");
+        break;
+      }else{
+        alert("Table is currently occupied","OccupyTable");
+        break;
+      }
+    }
+  }
+  if (failflag){
+    alert("No such table available at this moment","OccupyTable");
+  }
 }
 
-void RTables::ReleaseTable()
-{
-  int tablenumber;
-  cin>>tablenumber;//inputting table number; table numbers start with 0
-
-  tab[tablenumber].Occupied=false; //setting occupied counter to 0 to release table
-
+void ReleaseTable(RTables a[],string ID, int size){
+  bool failflag=true;
+  for(int i=0;i<size;++i){
+    if (a[i].getID()==ID){
+      failflag=false;
+      if (a[i].getIsOccupied()){
+        a[i].toggleOccupied();
+        alert("Table has been released","ReleaseTable");
+        break;
+      }else{
+        alert("Table is not Occupied","ReleaseTable");
+        break;
+      }
+    }
+  }
+  if (failflag){
+    alert("No such table available at this moment","ReleaseTable");
+  }
 }
 
-int RTables::CheckAvailability()
-{
-  int tablenumber;//inputting table number; table numbers start with 0
-  cin>>tablenumber;
-
-  if (tab[tablenumber].Occupied==false)
-  return 0; //if table is not occupied.
-
-  return 1; //if table is occupied.
+bool CheckAvailability(RTables a[],string ID, int size){
+  bool flag=false;
+  for(int i=0;i<size;++i){
+    if ((a[i].getID()==ID)&&(!(a[i].getIsOccupied()))){
+      flag=true;
+    }
+  }
+  return flag;
 }
+
 
 #endif

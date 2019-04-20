@@ -8,28 +8,28 @@ using namespace std;
 
 class RTables{
 private:
-  table tab[20];
+  table tab;
 public:
-  string getID(int tablenumber){
-    return tab[tablenumber].ID;
+  string getID(){
+    return tab.ID;
   }
-  int getNofSeats(int tablenumber){
-    return tab[tablenumber].NumberOfSeats;
+  int getNofSeats(){
+    return tab.NumberOfSeats;
   }
-  bool getIsOccupied(int tablenumber){
-    return tab[tablenumber].Occupied;
+  bool getIsOccupied(){
+    return tab.Occupied;
   }
-  void setID(int tablenumber,string s){
-    tab[tablenumber].ID=s;
+  void setID(string s){
+    tab.ID=s;
   }
-  void setNofSeats(int tablenumber,int n){
-    tab[tablenumber].NumberOfSeats=n;
+  void setNofSeats(int n){
+    tab.NumberOfSeats=n;
   }
-  void toggleOccupied(int tablenumber){
-    tab[tablenumber].Occupied=(!(tab[tablenumber].Occupied));
+  void toggleOccupied(){
+    tab.Occupied=(!(tab.Occupied));
   }
-  void setOccupied(int tablenumber,bool b){
-    tab[tablenumber].Occupied=b;
+  void setOccupied(bool b){
+    tab.Occupied=b;
   }
 };
 

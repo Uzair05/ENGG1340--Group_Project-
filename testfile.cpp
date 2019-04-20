@@ -2,27 +2,32 @@
 #include <string>
 #include "RestaurantTables.h" /*the double quotation marks makes it serach for header
 from within the same directory*/
+#include "TableFunctions.h"
 using namespace std;
 
 
 int main(){
-  RTables FamilyDeli[20];
+  RTables FDeli[20];
 
 
   /*temporary expo*/
-  string id;
+  string id="stove";
   int NumTables;
   bool isOccupied;
 
-  cin>>id>>NumTables>>isOccupied;
-  FamilyDeli[14].setID(id);
-  FamilyDeli[14].setNofSeats(NumTables);
-  FamilyDeli[14].setOccupied(false);
-  FamilyDeli[14].toggleOccupied();
+  /*set up*/
 
-  cout<<FamilyDeli[14].getID()<<endl;
-  cout<<FamilyDeli[14].getNofSeats()<<endl;
-  cout<<FamilyDeli[14].getIsOccupied()<<endl;
+  for(int i=0;i<20;++i){
+    FDeli[i].setID(id);
+    FDeli[i].setNofSeats(i);
+    FDeli[i].setOccupied(false);
+  }
+
+  ReleaseTable(FDeli,"stove",20);
+  cout<<FDeli[13].getID()<<" "<<FDeli[13].getNofSeats()<<endl;
+
+
+
   /*temporary expo*/
 
 
