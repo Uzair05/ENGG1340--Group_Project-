@@ -19,7 +19,8 @@ i.e. 5 people can be seated on a 6 seater table. etc.
 
 /*currently working on a method to reduce overflow*/
 
-struct MoodyJazz{
+struct MoodyJazz
+{
   string ID="";
   int seat=0;
 };
@@ -27,9 +28,10 @@ struct MoodyJazz{
 
 string recommend(RTables a[],int NumberofGuests, int size/*holds the total number of tables*/)
 {
-  MoodyJazz *pop = new MoodyJazz[size];
+  MoodyJazz *pop = new MoodyJazz[size];//creates arrays for each table holding the id and seats
   bool flag=false;
-  for(int i=0;i<size;++i){
+  for(int i=0;i<size;++i)
+  {
     if ((a[i].getNofSeats()==NumberofGuests)&&(!(a[i].getIsOccupied())))
     {
       flag=true;
@@ -38,9 +40,12 @@ string recommend(RTables a[],int NumberofGuests, int size/*holds the total numbe
     }
   }
   int count=0;
-  if (!(flag)){
-    for(int i=0;i<size;++i){
-      if ((a[i].getNofSeats()>=NumberofGuests)&&(!(a[i].getIsOccupied()))){
+  if (!(flag))
+  {
+    for(int i=0;i<size;++i)
+    {
+      if ((a[i].getNofSeats()>=NumberofGuests)&&(!(a[i].getIsOccupied())))
+      {
         pop[count].ID=a[i].getID();
         pop[count].seat=a[i].getNofSeats();
         count+=1;
@@ -48,14 +53,19 @@ string recommend(RTables a[],int NumberofGuests, int size/*holds the total numbe
     }
   }
 
-  if (count==0){
+  if (count==0)
+  {
     return "NoTables";
-  }else{
+  }
+  else
+  {
     MoodyJazz lowest;
     lowest.ID=pop[0].ID;
     lowest.seat=pop[0].seat;
-    for(int i=1;i<count;i++){
-      if ((lowest.seat>pop[i].seat)&&(pop[i].seat!=0)){
+    for(int i=1;i<count;i++)
+    {
+      if ((lowest.seat>pop[i].seat)&&(pop[i].seat!=0))
+      {
         lowest.ID=pop[i].ID;
         lowest.seat=pop[i].seat;
       }
