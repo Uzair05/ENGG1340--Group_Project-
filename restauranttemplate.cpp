@@ -1,13 +1,5 @@
 #include <iostream>
 #include <string>
-#include "RestaurantTables.h"
-#include "TableFunctions.h"
-
-#include "RecommendTable.h"/*bit of unique*/
-#include "TableHandle.h" /*
-i cant incorporate it into TableFunctions,
-so it'll have to stay here in the
-main program*/
 
 using namespace std;
 
@@ -38,39 +30,7 @@ int main()
   //cout<<recommend(a,5,getsize())<<endl;
 
   int command=0;
-  do
-  {
-
-    PresentOption();
-    cin>>command;
-
-    switch(command)
-    {
-      case(1):
-      RTables* a = new RTables[getsize()];
-      CreateFlag=true;
-      LoadTables(a);
-      break;
-
-      case(2):
-      ReSetTables();
-      break;
-
-      case(10):
-      cout<<"Exit has been triggered"<<endl;
-      if (CreateFlag)
-      {
-        delete[] a;
-      }
-      break;
-
-      default:
-      cout<<"Incorrect Command"<<endl;
-      break;
-    }
-
-  }while(command!=10);
-
+  PresentOption();
 
 
   return 0;
