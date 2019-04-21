@@ -11,7 +11,8 @@ main program*/
 
 using namespace std;
 
-void PresentOption(){
+void PresentOption()
+{
   system("CLR");
   cout<<"Enter A Single Digit Option"<<endl;
   cout<<"1. Load Tables From Database"<<endl;
@@ -27,35 +28,44 @@ void PresentOption(){
 }
 
 
-int main(){
+int main()
+{
   bool CreateFlag=false;
 
   //cout<<recommend(a,5,getsize())<<endl;
 
   int command=0;
-  do{
+  do
+  {
+
     PresentOption();
     cin>>command;
-    switch(command){
+
+    switch(command)
+    {
       case(1):
       RTables* a = new RTables[getsize()];
       CreateFlag=true;
       LoadTables(a);
       break;
+
       case(2):
       ReSetTables();
       break;
 
       case(10):
       cout<<"Exit has been triggered"<<endl;
-      if (CreateFlag){
+      if (CreateFlag)
+      {
         delete[] a;
       }
       break;
+
       default:
       cout<<"Incorrect Command"<<endl;
       break;
     }
+
   }while(command!=10);
 
 
