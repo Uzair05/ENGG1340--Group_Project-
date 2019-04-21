@@ -25,11 +25,13 @@ struct MoodyJazz{
 };
 
 
-string recommend(RTables a[],int NumberofGuests, int size/*holds the total number of tables*/){
+string recommend(RTables a[],int NumberofGuests, int size/*holds the total number of tables*/)
+{
   MoodyJazz *pop = new MoodyJazz[size];
   bool flag=false;
   for(int i=0;i<size;++i){
-    if ((a[i].getNofSeats()==NumberofGuests)&&(!(a[i].getIsOccupied()))){
+    if ((a[i].getNofSeats()==NumberofGuests)&&(!(a[i].getIsOccupied())))
+    {
       flag=true;
       return a[i].getID();
       break;
