@@ -1,6 +1,3 @@
-#ifndef THandle_H
-#define THandle_H
-
 #include <string>
 #include <fstream>
 #include <sstream>
@@ -12,22 +9,27 @@ using namespace std;
 const string FileName = "TableStore.txt";
 const string NumberOfTables = "NumberOfTables.txt";
 
-int getsize(){
+int getsize()
+{
   int temp=0;
   ifstream mop;
   mop.open(NumberOfTables.c_str());
-  if (mop.fail()){
+  if (mop.fail())
+  {
     alert("File could not be opened","Table Load");
     exit(1);
-  }else{
+  }
+  else
+  {
     mop>>temp;
   }
-  
+
   mop.close();
   return temp;
 }
 
-void LoadTables(RTables a[]){
+void LoadTables(RTables a[])
+{
   int size = getsize();
   string temp="";
   string value1="";
@@ -36,12 +38,14 @@ void LoadTables(RTables a[]){
   ifstream foil;
   foil.open(FileName.c_str());
 
-  if (foil.fail()){
+  if (foil.fail())
+  {
     alert("File could not be opened","Table Load");
     exit(1);
   }
 
-  for(int i=0;i<size;i++){
+  for(int i=0;i<size;i++)
+  {
     foil>>value1;
     foil>>value2;
     a[i].setID(value1);
@@ -53,7 +57,8 @@ void LoadTables(RTables a[]){
 
 }
 
-void ReSetTables(){
+void ReSetTables()
+{
   string value1="";
   int value2=0;
   int i=0;
@@ -61,10 +66,13 @@ void ReSetTables(){
 
   ofstream foil;
   foil.open(FileName.c_str());
-  if (foil.fail()){
+  if (foil.fail())
+  {
     alert("File could not be opened","Table ReSet");
     exit(1);
-  }else{
+  }
+  else
+  {
     system("CLS");
     cout<<"How many tables do you want to enter?"<<endl;
     cin>>num;
@@ -84,10 +92,10 @@ void ReSetTables(){
   if (foi.fail()){
     alert("File could not be opened","Table ReSet");
     exit(1);
-  }else{
+  }
+  else
+  {
     foi<<num;
   }
   foi.close();
 }
-
-#endif
