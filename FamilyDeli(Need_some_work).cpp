@@ -56,6 +56,18 @@ int main()
       ReSetTables();
       break;
 
+      case(3):
+      RecommendTable();
+      break;
+
+      case(4):
+      OccupyTable();
+      break;
+
+      case(5):
+      ReleaseTable()
+      break;
+
       case(10):
       cout<<"Exit has been triggered"<<endl;
       if (CreateFlag)

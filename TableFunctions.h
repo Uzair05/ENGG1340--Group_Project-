@@ -1,6 +1,3 @@
-#ifndef TFunctions_H /*This name must be unique for all .h files :P*/
-#define TFunctions_H
-
 #include <iostream>
 #include <string>
 #include "RestaurantTables.h"
@@ -59,8 +56,3 @@ bool CheckAvailability(RTables a[],string ID, int size){
   }
   return flag;
 }
-
-
-
-
-#endif
