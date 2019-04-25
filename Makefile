@@ -6,6 +6,8 @@ FamilyDeli:FamilyDeli.o RestaurantTables.o RestaurantTables.h
 	g++ --pedantic-errors -std=c++11 $^ -o $@
 
 
-.PHONY: clean
+.PHONY: clean cleanAll
 clean:
 	rm -rf *.o
+cleanAll:
+	rm -rf *.o *.txt

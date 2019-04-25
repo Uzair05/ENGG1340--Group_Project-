@@ -85,10 +85,10 @@ if (foil.fail()){
   alert("File could not be opened","Table ReSet");
   exit(1);
 }else{
-  system("CLS");
+  system("clear");
   cout<<"How many tables do you want to enter?"<<endl;
   cin>>num;
-  system("CLS");
+  system("clear");
   for(int i=0;i<num;++i){
     cout<<"enter table ID:\t";
     cin>>value1;
@@ -96,7 +96,7 @@ if (foil.fail()){
     cin>>value2;
     foil<<value1<<" "<<value2<<endl;
   }
-  system("CLS");
+  system("clear");
 }
 foil.close();
 ofstream foi;
@@ -172,6 +172,7 @@ void Functions::OccupyTable(RTables a[],string ID, int size){
     alert("No such table available at this moment","OccupyTable");
   }
 }
+
 void Functions::ReleaseTable(RTables a[],string ID, int size){
   bool failflag=true;
   for(int i=0;i<size;++i){
@@ -191,6 +192,7 @@ void Functions::ReleaseTable(RTables a[],string ID, int size){
     alert("No such table available at this moment","ReleaseTable");
   }
 }
+
 bool Functions::CheckAvailability(RTables a[],string ID, int size){
   bool flag=false;
   for(int i=0;i<size;++i){
