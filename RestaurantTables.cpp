@@ -1,4 +1,5 @@
 #include <iostream>
+#include <iomanip>
 #include <string>
 #include "TableTop.h"
 #include "RestaurantTables.h"
@@ -90,11 +91,12 @@ if (foil.fail()){
   cin>>num;
   system("clear");
   for(int i=0;i<num;++i){
-    cout<<"enter table ID:\t";
-    cin>>value1;
+    cout<<"Table ID: "<<setfill('0')<<setw(3)<<i;
+    value1<<to_string(i);
     cout<<"enter number of seats of table:\t";
     cin>>value2;
-    foil<<value1<<" "<<value2<<endl;
+    foil<<value1<<" ";
+    foil<<setfill('0')<<setw(3)<<value2<<endl;
   }
   system("clear");
 }
