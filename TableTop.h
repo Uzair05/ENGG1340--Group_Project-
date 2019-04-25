@@ -8,10 +8,6 @@ struct table{
 std::string ID="";
 int NumberOfSeats=0;
 bool Occupied=false;
-
-/*Date Time Seated*/
-/*Date Time Booking*/
-
 };
 
 #endif
