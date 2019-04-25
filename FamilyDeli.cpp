@@ -25,7 +25,6 @@ int main(){
 
 Functions deli;
 deli.ReSetTables();
-
 RTables* a = new RTables[deli.getsize()];
 
 deli.LoadTables(a);
@@ -34,8 +33,16 @@ int guest;
 cout<<"How many guest do you expect?"<<endl;
 cin>>guest;
 
-cout<<deli.recommend(a,guest,deli.getsize())<<endl;
+string suggest=deli.recommend(a,guest,deli.getsize());
 
+cout<<suggest<<endl;
+
+deli.OccupyTable(a,suggest,deli.getsize());
+
+cout<<a[1].getIsOccupied()<<endl<<endl;
+
+deli.ReleaseTable(a,suggest,deli.getsize());
+cout<<a[1].getIsOccupied()<<endl;
 
 delete[] a;
   return 0;
