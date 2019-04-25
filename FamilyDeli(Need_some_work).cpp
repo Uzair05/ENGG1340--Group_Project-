@@ -23,10 +23,11 @@ void PresentOption()
   cout<<"4. Book A Table"<<endl;
   cout<<"5. Release A Booking"<<endl;
   cout<<"6. Occupy A Table"<<endl;
-  cout<<"7. Append Billing of Table"<<endl; /*To work on*/
-  cout<<"8. Print Bill of table"<<endl; /*To work on*/
-  cout<<"9. Plot out Monthly success of Dishes"<<endl; /*To work on*/
-  cout<<"10. Exit"<<endl<<endl;
+  cout<<"7. Add A Dish"<<endl;
+  cout<<"8. Append Billing of Table"<<endl; /*To work on*/
+  cout<<"9. Print Bill of table"<<endl; /*To work on*/
+  cout<<"10. Plot out Monthly success of Dishes"<<endl; /*To work on*/
+  cout<<"11. Exit"<<endl<<endl;
   cout<<"******************************************"<<endl;
 }
 
@@ -68,7 +69,7 @@ int main()
       ReleaseTable()
       break;
 
-      case(10):
+      case(11):
       cout<<"Exit has been triggered"<<endl;
       if (CreateFlag)
       {

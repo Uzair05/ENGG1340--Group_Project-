@@ -11,11 +11,18 @@ void AddDish(string dishname, int price)
 
 void AppendBillingOfTable(string tableid)
 {
-  string dishname;int counter=13,totalcost=0,cost,count=15,flag=0;
+  string dishname,dish1,dish;int counter=13,totalcost=0,cost,count=15,flag=0;
 
   ifstream fin("order.txt");//takes ordered dishes
   ifstream alldish("dishes.txt");//compares with txt files containing all dishes
-  ofstream fout("finalbill.txt",ios::app);//outputs final bill to txt file
+  ofstream fout("finalbill.txt");//outputs final bill to txt file
+
+  if(fin.fail())
+  exit(0);
+  if(alldish.fail())
+  exit(0);
+  if(fout.fail())
+  exit(0);
 
   fout<<"Table ID= "<<tableid<<endl;
   getline(alldish,dish1);//getting name of dish
@@ -61,5 +68,38 @@ void AppendBillingOfTable(string tableid)
     }
     if(flag==1)
     break;
+  }
+}
+
+void FormingOrder(string tableid)
+{
+  cout<<dishes.txt<<endl<<endl<<"Please select dish numbers to make order and type -1 to finish ordering."<<endl;
+
+  ifstream fin("dishes.txt");
+  ofstream fout("order.txt");
+
+  int numberofdish=0,count=1;
+
+  if(fin.fail())
+  exit(0);
+  if (fout.fail())
+  exit(0);
+
+  int n;string s;
+  cin>>n;
+  fout<<"Table ID="<<tableid<<" ";
+
+  //keeps reading orders and outputs them to "order.txt" until user inputs -1
+  while(n!=-1)
+  {
+    fin.open();
+    for(int i=1;i<=n;i++)
+    {
+      getline(fin,s);
+    }
+    s=s.substr(0,s.find(' '));
+    fout<<s<<" ";
+    cin>>n;
+    fin.close();
   }
 }
