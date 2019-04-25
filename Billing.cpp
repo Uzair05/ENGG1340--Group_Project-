@@ -155,9 +155,3 @@ void FormingOrder(string tableid)
   fout.close();
 
 }
-
-int main()
-{
-  FormingOrder("123");
-  AppendBillingOfTable("123");
-}
