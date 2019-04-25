@@ -3,63 +3,147 @@
 #include <fstream>
 using namespace std;
 
+void PrintMenu()
+{
+  ifstream fin("dishes.txt");
+  string s;
+
+  if (fin.fail())
+  exit(0);
+
+  while(getline(fin,s))
+  {
+    cout<<s<<endl;
+  }
+
+  fin.close();
+}
+
 void AddDish(string dishname, int price)
 {
-  ofstream fout("dishes.txt",ios::app);
-  fout<<dishname<<" "<<price;
+  ofstream fout("dishes.txt");
+
+  if (fout.fail())
+  exit(0);
+
+  fout<<dishname<<"-"<<price;
+
+  fout.close();
 }
 
 void AppendBillingOfTable(string tableid)
 {
-  string dishname;int counter=13,totalcost=0,cost,count=15,flag=0;
+  string dishname,dish1,dish,cost;int head=13,totalcost=0,counter=13,flag=0,flag2=1,tail;
 
-  ifstream fin("order.txt");//takes ordered dishes
+  ifstream order("order.txt");//takes ordered dishes
   ifstream alldish("dishes.txt");//compares with txt files containing all dishes
-  ofstream fout("finalbill.txt",ios::app);//outputs final bill to txt file
+  ofstream fout("finalbill.txt");//outputs final bill to txt file
+
+  if(order.fail())
+  exit(0);
+  if(alldish.fail())
+  exit(0);
+  if(fout.fail())
+  exit(0);
+
+
 
   fout<<"Table ID= "<<tableid<<endl;
-  getline(alldish,dish1);//getting name of dish
 
-  while(getline(fin,dish))//getting orders of dishes
+  while(getline(order,dish))//getting orders of dishes
   {
-    if(dish.substr(10,3)==tableid)//if table ids match
+
+    if(dish.substr(9,3)==tableid)//if table ids match
     {
-      dish+=" ";
+
       //dish stores the ordered dish
       //dish1 stores the names of all the dishes
 
       while(getline(alldish,dish1))//takes names of all dishes
       {
-        while(counter<=dish.length()-1)
+        counter=13;flag=0;
+        while((counter<=dish.length()-1) && (flag==1))
         {
-          dishname=dish.substr(counter,dish.find(' ',counter+1)-counter);//gets names of ordered dish
+          dishname=dish.substr(counter,dish.find(',',counter+1)-counter);//gets names of ordered dish
 
-          if(dishname==dish1.substr(0,dish1.find(' ')))//if dishnames match calculate cost
+
+          if(dishname==dish1.substr(0,dish1.find('-')))//if dishnames match, calculate cost
           {
-            cost=dish1.substr(dish1.find(' ')+1,dish1.length()-dish1.find(' '));
+            cost=dish1.substr(dish1.find('-')+1,dish1.length()-dish1.find('-')-1);
             totalcost+=stoi(cost);
 
-            //breaks out of all loops if counter is the last space
+            //breaks out of all loops if counter is the last comma
+
             if(counter!=dish.length()-1)
-            counter=dish.find(' ',counter);
-            else
-            flag=1;
-
+            {
+              counter=dish.find(',',counter+1);
+            }
             //appends dishname and cost
-            fout<<dishname<<" "<<cost<<endl;
+            fout<<dishname<<"-"<<cost<<endl;
           }
-
-          //appends total cost
-          fout<<"Total cost= "<<totalcost<<endl;
-
+          //if counter as reached end of ordered disj string break and search for next dish
           if(flag==1)
           break;
         }
-        if(flag==1)
-        break;
+
       }
+
+      fout<<"Total cost= "<<totalcost<<endl;
     }
+    else
+    continue;
+
     if(flag==1)
     break;
   }
+  order.close();
+  alldish.close();
+  fout.close();
+}
+
+void FormingOrder(string tableid)
+{
+  ifstream fin("dishes.txt");
+  ofstream fout("order.txt");
+
+  PrintMenu();
+
+  cout<<endl<<endl<<"Please select dish numbers to make order and type -1 to finish ordering."<<endl<<endl;
+
+  int numberofdish=0,count=1;
+
+  if(fin.fail())
+  exit(0);
+  if (fout.fail())
+  exit(0);
+
+  int n;string s;
+  cin>>n;
+  fout<<"Table ID="<<tableid<<" ";
+  fin.close();
+
+  //keeps reading orders and outputs them to "order.txt" until user inputs -1
+  while(n!=-1)
+  {
+    fin.open("dishes.txt");
+    for(int i=1;i<=n;i++)
+    {
+      getline(fin,s);
+    }
+    s=s.substr(0,s.find('-'));
+    fout<<s<<",";
+    cin>>n;
+    fin.close();
+  }
+
+  //closing all files
+  fin.close();
+  fout.close();
+
+}
+
+int main()
+{
+  FormingOrder("123");
+  //AppendBillingOfTable("123");
 }

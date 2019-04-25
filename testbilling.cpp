@@ -3,6 +3,17 @@
 #include <fstream>
 using namespace std;
 
+void PrintMenu()
+{
+  ifstream fin("dishes.txt");
+  string s;
+
+  while(getline(fin,s))
+  {
+    cout<<s<<endl;
+  }
+}
+
 void AddDish(string dishname, int price)
 {
   ofstream fout("dishes.txt",ios::app);
@@ -11,7 +22,7 @@ void AddDish(string dishname, int price)
 
 void AppendBillingOfTable(string tableid)
 {
-  string dishname,dish1,dish;int counter=13,totalcost=0,cost,count=15,flag=0;
+  string dishname,dish1,dish,cost;int counter=13,totalcost=0,count=15,flag=0;
 
   ifstream fin("order.txt");//takes ordered dishes
   ifstream alldish("dishes.txt");//compares with txt files containing all dishes
@@ -73,10 +84,12 @@ void AppendBillingOfTable(string tableid)
 
 void FormingOrder(string tableid)
 {
-  cout<<dishes.txt<<endl<<endl<<"Please select dish numbers to make order and type -1 to finish ordering."<<endl;
-
   ifstream fin("dishes.txt");
   ofstream fout("order.txt");
+
+  PrintMenu();
+
+  cout<<endl<<endl<<"Please select dish numbers to make order and type -1 to finish ordering."<<endl;
 
   int numberofdish=0,count=1;
 
@@ -88,11 +101,12 @@ void FormingOrder(string tableid)
   int n;string s;
   cin>>n;
   fout<<"Table ID="<<tableid<<" ";
+  fin.close();
 
   //keeps reading orders and outputs them to "order.txt" until user inputs -1
   while(n!=-1)
   {
-    fin.open();
+    fin.open("dishes.txt");
     for(int i=1;i<=n;i++)
     {
       getline(fin,s);
