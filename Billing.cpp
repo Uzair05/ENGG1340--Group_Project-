@@ -33,7 +33,7 @@ void AddDish(string dishname, int price)
 
 void AppendBillingOfTable(string tableid)
 {
-  string dishname,dish1,dish,cost;int head=13,totalcost=0,counter=13,flag=0,flag2=1,tail;
+  string dishname,dish1,dish,cost;int head=13,totalcost=0,counter=13,flag=0,flag2=1;
 
   ifstream order("order.txt");//takes ordered dishes
   ifstream alldish("dishes.txt");//compares with txt files containing all dishes
@@ -48,11 +48,13 @@ void AppendBillingOfTable(string tableid)
 
 
 
-  fout<<"Table ID= "<<tableid<<endl;
+  fout<<"           Table ID="<<tableid<<endl;
+  fout<<"______________________________________"<<endl<<endl;
+  fout<<"           Final bill"<<endl<<endl;
+  fout<<"**************************************"<<endl<<endl;
 
   while(getline(order,dish))//getting orders of dishes
   {
-
     if(dish.substr(9,3)==tableid)//if table ids match
     {
 
@@ -61,15 +63,21 @@ void AppendBillingOfTable(string tableid)
 
       while(getline(alldish,dish1))//takes names of all dishes
       {
-        counter=13;flag=0;
-        while((counter<=dish.length()-1) && (flag==1))
-        {
-          dishname=dish.substr(counter,dish.find(',',counter+1)-counter);//gets names of ordered dish
 
+        counter=13;flag=0;
+        while((counter!=dish.length()-1) && (flag==0))
+        {
+
+          if (counter==13)
+          dishname=dish.substr(counter,dish.find(',',counter+1)-counter);//gets names of ordered dish
+          else
+          dishname=dish.substr(counter+1,dish.find(',',counter+2)-counter-1);
 
           if(dishname==dish1.substr(0,dish1.find('-')))//if dishnames match, calculate cost
           {
+
             cost=dish1.substr(dish1.find('-')+1,dish1.length()-dish1.find('-')-1);
+
             totalcost+=stoi(cost);
 
             //breaks out of all loops if counter is the last comma
@@ -78,16 +86,22 @@ void AppendBillingOfTable(string tableid)
             {
               counter=dish.find(',',counter+1);
             }
+            else
+            flag=1;
+
             //appends dishname and cost
             fout<<dishname<<"-"<<cost<<endl;
           }
-          //if counter as reached end of ordered disj string break and search for next dish
-          if(flag==1)
+          else if (counter!=dish.length()-1)
+          {
+            counter=dish.find(',',counter+1);
+          }
+          else
           break;
         }
 
       }
-
+      fout<<endl<<"***********************************"<<endl<<endl;
       fout<<"Total cost= "<<totalcost<<endl;
     }
     else
@@ -145,5 +159,5 @@ void FormingOrder(string tableid)
 int main()
 {
   FormingOrder("123");
-  //AppendBillingOfTable("123");
+  AppendBillingOfTable("123");
 }
