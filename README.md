@@ -47,4 +47,4 @@ The features of program are listed as such:
 ## Things We Could Have Done Better
 - Made a Proper GUI
 - Used MySql or some database software to enhance features of the Software. for example **finding a table with a window seat**
-- Had properly drawn out a map to help coordinate with teammates.
+- Had properly drawn out a map/Pert chart to help coordinate with teammates.
