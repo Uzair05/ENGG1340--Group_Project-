@@ -1,10 +1,10 @@
+#include <iostream>
 #include <string>
 #include "TableTop.h"
 #include "RestaurantTables.h"
 #include <fstream>
 #include <sstream>
 #include <stdlib.h>
-#include <windows.h>
 using namespace std;
 
 const string FileName = "TableStore.txt";
@@ -14,8 +14,11 @@ const string NumberOfTables = "NumberOfTables.txt";
 
 
 void alert(string message,string head){
-  cout<<"\a";
-  ::MessageBox(NULL,message.c_str(),head.c_str(),MB_OK);}
+  cout<<"\a........................................"<<endl;
+  cout<<head<<endl;
+  cout<<message<<endl;
+  cout<<"\a........................................"<<endl;
+}
 
 string RTables::getID(){
   return tab.ID;}

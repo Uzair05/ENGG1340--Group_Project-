@@ -12,7 +12,7 @@ private:
 public:
   string getID();
   int getNofSeats();
-  bool getIsOccupied()
+  bool getIsOccupied();
   void setID(string s);
   void setNofSeats(int n);
   void toggleOccupied();

@@ -1,8 +1,8 @@
 RestaurantTables.o:RestaurantTables.cpp RestaurantTables.h TableTop.h
 	g++ --pedantic-errors -std=c++11 -c $<
-FamilyDeli.o:FamilyDeli.cpp RestaurantTables.h TableTop.h
+FamilyDeli.o:FamilyDeli.cpp RestaurantTables.h
 	g++ --pedantic-errors -std=c++11 -c $<
-main:RestaurantTables.o RestaurantTables.h TableTop.h
+FamilyDeli:FamilyDeli.o RestaurantTables.o RestaurantTables.h
 	g++ --pedantic-errors -std=c++11 $^ -o $@
 
 
