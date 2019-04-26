@@ -15,9 +15,13 @@ const string NumberOfTables = "NumberOfTables.txt";
 
 
 void alert(string message,string head){
+  /*handles the alerts*/
   cout<<"\a........................................"<<endl;
+  /*separator*/
   cout<<head<<endl;
+  /*Topic of message; also acts as a debugging tool*/
   cout<<message<<endl;
+  /*actual message body*/
   cout<<"\a........................................"<<endl;
 }
 

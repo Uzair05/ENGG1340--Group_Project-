@@ -11,7 +11,7 @@ void PresentOption(){
   cout<<"1. Load Tables From Database"<<endl;
   cout<<"2. Seasonal Rarrangement of Tables"<<endl;
   cout<<"3. Find A Suitable Table"<<endl;
-  cout<<"4. Book A Table"<<endl;
+  cout<<"4. Book A Table"<<endl; /*To work on*/
   cout<<"5. Release A Booking"<<endl;
   cout<<"6. Occupy A Table"<<endl;
   cout<<"7. Append Billing of Table"<<endl; /*To work on*/

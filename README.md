@@ -18,6 +18,7 @@ Other issues may include the mundane tasks such as having to keep a record of th
 ## Problem Setting
 Certain assumptions must be made before creating the program.
 1. We need to assume that the restaurant ***has the necessary computer system and OS to run the program***.
+***Our Program will run on Linux Ubuntu based system.***
 2. We'll also be assuming that the ***waiters and staff react and respond to prompts and notifications from the program*** and take any necessary measures and update their input to the program.
 3. It will be assumed that the restaurant is an ***average sized family-owned Deli***.
 4. We assume that the deli ***has a satisfactory customer base*** at present.

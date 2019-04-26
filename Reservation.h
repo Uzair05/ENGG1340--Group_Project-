@@ -14,7 +14,9 @@ string ConvertInputTime(int tim);
 void SetBooking(string ID,string tim);
 /*Accepts a manual input of time in 24 hours format*/
 /*creates an unsorted list of bookings*/
-/*when booking it makes sure to check if it is available at that time*/
+/*when booking it makes sure to check if it is available at that time
+This will be possible by Co-using FindTime
+*/
 
 void CancelBooking(string ID,string tim);
 /*Accepts a manual input of time in 24 hours format*/
