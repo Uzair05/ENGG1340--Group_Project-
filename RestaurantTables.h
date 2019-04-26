@@ -64,7 +64,7 @@ public:
     tab.CustomerName=customer;
   }
 
-  
+
 };
 
 #endif

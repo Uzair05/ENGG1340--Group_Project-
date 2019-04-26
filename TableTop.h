@@ -5,7 +5,6 @@
 
 struct table{
 
-<<<<<<< HEAD
 std::string ID;
 int NumberOfSeats;
 bool Occupied;
