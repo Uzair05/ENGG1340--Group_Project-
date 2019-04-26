@@ -5,7 +5,6 @@
 
 struct table{
 
-<<<<<<< HEAD
 std::string ID;
 int NumberOfSeats;
 bool Occupied;
@@ -13,11 +12,10 @@ string BookingTime;
 string SittingTime;
 string CustomerName;
 =======
-std::string ID="";
-int NumberOfSeats=0;
-bool Occupied=false;
+/*Date Time Seated*/
+/*Date Time Booking*/
 
->>>>>>> 55ce846f6946f111a5f0cf0f2191919a3b013d94
+>>>>>>> cd1f208c52d832e9c80e780c33d3a97f1924f4e6
 };
 
 #endif
