@@ -6,7 +6,7 @@
 using namespace std;
 
 void PresentOption(){
-  system("CLR");
+  system("clear");
   cout<<"Enter A Single Digit Option"<<endl;
   cout<<"1. Load Tables From Database"<<endl;
   cout<<"2. Seasonal Rarrangement of Tables"<<endl;

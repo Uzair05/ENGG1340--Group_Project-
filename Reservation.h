@@ -23,6 +23,14 @@ void CancelBooking(string ID,string time);
 void CheckOverTime(string ID,string time);
 
 /*Accepts a manual input of time in 24 hours format*/
+
+bool FindTime(string ID,string time);
+/*Accepts ID and time of booking and checks if it is possible within that time space*/
+/*only sends true if it doesnt overlap 45 minuts with other bookings*/
+
+/*This needs to be appended to recommend function*/
 };
+
+
 
 #endif
