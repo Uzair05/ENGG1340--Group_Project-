@@ -10,4 +10,4 @@ FamilyDeli:FamilyDeli.o RestaurantTables.o RestaurantTables.h
 clean:
 	rm -rf *.o
 cleanAll:
-	rm -rf *.o *.txt
+	rm -rf *.o *.txt FamilyDeli
