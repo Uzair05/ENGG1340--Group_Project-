@@ -5,6 +5,7 @@ using namespace std;
 
 void SwapFunctions();
 void SwaptoAllDishes();
+int RemovingSameTableIdfromOrder(string tableid);
 
 void InitialiseFiles()
 {
@@ -114,7 +115,7 @@ void AddDish(int n)
 
 void AppendBillingOfTable(string tableid)
 {
-  string dishname,dish1,dish,cost;int head=13,totalcost=0,counter=13,flag=0,flag1=1,flag2=1;
+  string dishname,dish1,dish,cost;int head=13,n,totalcost=0,counter=13,flag=0,flag1=1,flag2=1,flag3=1,tablenotpresent=1;
 
   ifstream order("order.txt");//takes ordered dishes
   ifstream alldish("dishes.txt");//compares with txt files containing all dishes
@@ -128,17 +129,22 @@ void AppendBillingOfTable(string tableid)
   exit(0);
 
 
-  while(getline(order,dish))//getting orders of dishes
-  {
+  n=RemovingSameTableIdfromOrder(tableid);
+
+    for(int i=1;i<=n;i++)//getting orders of dishes
+    {
+      getline(order,dish);
+    }
     if(dish.substr(9,3)==tableid)//if table ids match
     {
       fout<<"           Table ID="<<tableid<<endl;
       fout<<"______________________________________"<<endl<<endl;
       fout<<"           Final bill"<<endl<<endl;
       fout<<"**************************************"<<endl<<endl;
+      tablenotpresent=0;
     }
     else
-    cout<<"Table not found"<<endl;
+    tablenotpresent=1;
     if(dish.substr(9,3)==tableid)//if table ids match
     {
 
@@ -188,15 +194,82 @@ void AppendBillingOfTable(string tableid)
       fout<<endl<<"***********************************"<<endl<<endl;
       fout<<"Total cost= $"<<totalcost<<endl;
     }
-    else
+
+    if (tablenotpresent==1)
+    cout<<"Table not present"<<endl;
+
+    order.close();
+    alldish.close();
+    fout.close();
+
+  }
+
+
+
+void SwapTemp2toOrder()
+{
+  ofstream fout("order.txt");
+  ifstream fin("temp2.txt");
+
+  string swapline;
+
+  while(getline(fin,swapline))
+  {
+    fout<<swapline<<endl;
+  }
+
+  fin.close();
+  fout.close();
+}
+
+void MakeOrderUnique(int n)
+{
+  ifstream fin("order.txt");
+  ofstream fout("temp2.txt");
+
+  if(fin.fail() || fout.fail())
+  exit(0);
+
+  fin.close();
+  ifstream fin2("order.txt");
+
+  string orderline;int count=1;
+
+  while(getline(fin2,orderline))
+  {
+    cout<<"Orderline: "<<orderline<<endl;
+    if(count==n)
     continue;
 
-    if(flag==1)
-    break;
+    else
+    fout<<orderline<<endl;
+
+    count++;
   }
+
+  fin2.close();
+
+  SwapTemp2toOrder();
+}
+
+int RemovingSameTableIdfromOrder(string tableid)
+{
+  ifstream order("order.txt");
+
+  string orderline;int flag=1,prev;
+
+  while(getline(order,orderline))
+  {
+    if(orderline.substr(9,3)==tableid)
+    prev=flag;
+
+    flag++;
+  }
+
+  //cout<<flag<<endl;
   order.close();
-  alldish.close();
-  fout.close();
+
+  return prev;
 }
 
 void FormingOrder(string tableid)
@@ -204,13 +277,17 @@ void FormingOrder(string tableid)
   InitialiseFiles();//adds dishes which arent already in alldishesordered.txt
 
   ifstream fin("dishes.txt");
-  ofstream fout("order.txt",ios::app);
   ifstream successdish("alldishesordered.txt");
   ofstream temp("temp.txt");
+
+  RemovingSameTableIdfromOrder(tableid);
+  ofstream fout("order.txt",ios::app);
 
   PrintMenu();
 
   cout<<endl<<endl<<"Please select dish numbers to make order and type -1 to finish ordering."<<endl<<endl;
+
+
 
   int numberofdish=0,count=1,flag,flag2=1,number;string line;
 
@@ -415,4 +492,6 @@ int main()
   cout<<"Exited successfully!"<<endl;
   remove("temp.txt");
   remove("swap.txt");
+  remove("order.txt");
+  remove("temp2.txt");
 }

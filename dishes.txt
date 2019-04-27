@@ -9,3 +9,7 @@ Chicken-5
 Dumplings-15
 Wontons-5
 Milkshake-20
+MountainDew-2
+Awesome-40
+Cool-20
+Cooler-25
