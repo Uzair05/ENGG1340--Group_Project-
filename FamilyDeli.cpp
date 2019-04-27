@@ -126,34 +126,32 @@ int main()
       deli.CheckOverTime(Time);
       break;
       case 7:
+      string tableid;
+      system("clear");
+
+      do
       {
-        string tableid;
-        system("clear");
-
-        do
+        cout<<"Please enter a table ID"<<endl;
+        cin>>tableid;
+        for(int i=0;i<deli.getsize();i++)
         {
-          cout<<"Please enter a table ID"<<endl;
-          cin>>tableid;
-          for(int i=0;i<deli.getsize();i++)
+          if (table[i].getID()==tableid)
           {
-            if (table[i].getID()==tableid)
-            {
-              mob=false;
-            }
+            mob=false;
           }
-        }while(mob);
+        }
+      }while(mob);
 
-        if(mob==false)
-        bill.Control(tableid);
-
-        break;
+      if(mob==false)
+      bill.Control(tableid);
+      break;
       case 8:
       cout<<"Exited successfully"<<endl<<endl;
       break;
       default:
       cout<<"Not Valid Command"<<endl;
       break;
-
+      
     }
     delete[] table;
   }
