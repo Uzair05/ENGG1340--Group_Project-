@@ -5,6 +5,8 @@
 #include "Reservation.h"
 using namespace std;
 
+char wait;
+
 
 int Timer::ConvertTimeInput(string tim){
   string hours,minutes;

@@ -13,6 +13,3 @@ FamilyDeli:FamilyDeli.o RestaurantTables.o Reservation.o Billing.o RestaurantTab
 .PHONY: clean cleanAll
 clean:
 	rm -rf *.o
-cleanAll:
-	rm -rf *.o *.txt FamilyDeli
-	#This resets everything
