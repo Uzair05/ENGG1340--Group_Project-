@@ -32,7 +32,7 @@ void CheckOverTime(string tim);
 
 /*Accepts a manual input of time in 24 hours format*/
 
-bool FindTime(string ID,string tim);
+void FindTime(string ID,string tim);
 /*Accepts ID and time of booking and checks if it is possible within that time space*/
 /*only sends true if it doesnt overlap 45 minuts with other bookings*/
 
