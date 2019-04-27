@@ -23,3 +23,5 @@ class Billing
     void SuccessRate();
     void Control(string tableid);
 };
+
+#endif

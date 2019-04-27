@@ -19,10 +19,8 @@ int PresentOption()
   cout<<"3. Release A Booking"<<endl;
   cout<<"4. Occupy A Table"<<endl;
   cout<<"5. Release A Table"<<endl;
-  cout<<"6. Append Billing of Table"<<endl;
-  cout<<"7. Print Bill of table"<<endl;
-  cout<<"8. Plot out Monthly success of Dishes"<<endl;
-  cout<<"9. Exit"<<endl;
+  cout<<"6. Billing and Ordering Management"<<endl;
+  cout<<"7. Exit"<<endl;
   cin>>choice;
   return choice;
 }
@@ -35,7 +33,7 @@ int main()
   cin>>a;
 
   Functions deli;
-
+  Billing bill;
 
 
   if (a=='Y')
@@ -50,9 +48,35 @@ int main()
     deli.LoadTables(table);
     switch(choice)
     {
-      case 1:
-      break;
+        case 6:
+        {
+          string tableid;
+          system("clear");
+          bool mob = true;
+          do
+          {
+            cout<<"Please enter a table ID"<<endl;
+            cin>>tableid;
+            for(int i=0;i<deli.getsize();i++)
+            {
+              if (table[i].getID()==tableid)
+              {
+                mob=false;
+              }
+            }
+          }while(mob);
 
+          if(mob==false)
+          bill.Control(tableid);
+
+          break;
+        }
+
+        case 7:
+        {
+            cout<<"Exited successfully"<<endl<<endl;
+            exit(0);
+        }
     }
     delete[] table;
   }

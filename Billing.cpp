@@ -448,6 +448,7 @@ void Billing::SuccessRate()
 
 void Billing::Control(string tableid)
 {
+  system("clear");
   PrintContents();
 
   int n,price;string name;
