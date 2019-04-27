@@ -30,7 +30,7 @@ int main()
   cout<<"Do you wish to Make Seasonal Rarrangement of Tables (Y/N)"<<endl;
   char a;
   cin>>a;
-
+  char wait;
   Functions deli;
   Billing bill;
 
@@ -47,7 +47,6 @@ int main()
   else if (a=='N')
   {
     int choice;
-    char wait;
     RTables* table = new RTables[deli.getsize()];
     deli.LoadTables(table);
 
