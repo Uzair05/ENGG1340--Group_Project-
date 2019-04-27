@@ -38,6 +38,11 @@ int main()
   if (a=='Y')
   {
     deli.ReSetTables();
+    cout<<"Seasonal Arrangment Successful"<<endl;
+    cout<<"Please Restart the program\n"<<endl;
+    cout<<"Press any button to exit (random character)"<<endl;
+    cin>>wait; /*Allows wait for user to see*/
+
   }
   else if (a=='N')
   {
