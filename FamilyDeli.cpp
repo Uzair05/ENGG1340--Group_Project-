@@ -46,13 +46,15 @@ int main()
     choice = PresentOption();
     RTables* table = new RTables[deli.getsize()];
     deli.LoadTables(table);
+    bool mob = true;
+    
     switch(choice)
     {
         case 6:
         {
           string tableid;
           system("clear");
-          bool mob = true;
+
           do
           {
             cout<<"Please enter a table ID"<<endl;
