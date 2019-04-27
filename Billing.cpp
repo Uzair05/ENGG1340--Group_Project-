@@ -1,6 +1,7 @@
 #include <iostream>
 #include <string>
 #include <fstream>
+#include "billing.h"
 
 using namespace std;
 
@@ -448,6 +449,7 @@ void Billing::SuccessRate()
 
 void Billing::Control(string tableid)
 {
+  system("clear");
   PrintContents();
 
   int n,price;string name;

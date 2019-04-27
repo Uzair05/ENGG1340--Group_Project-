@@ -18,7 +18,8 @@ int PresentOption()
   cout<<"4. Occupy A Table"<<endl;
   cout<<"5. Release A Table"<<endl;
   cout<<"6. Check for Overtime"<<endl;
-  cout<<"9. Exit"<<endl;
+  cout<<"7. Billing and Ordering Management"<<endl;
+  cout<<"8. Exit"<<endl;
   cin>>choice;
   return choice;
 }
@@ -31,7 +32,7 @@ int main()
   cin>>a;
 
   Functions deli;
-
+  Billing bill;
 
 
   if (a=='Y')
@@ -47,7 +48,7 @@ int main()
 
     string TableIdentity,Time;
     int NumberofGuests;
-    int mob
+    bool mob
 
 
     switch(choice)
@@ -124,7 +125,34 @@ int main()
       cin>>Time;
       deli.CheckOverTime(Time);
       break;
+      case 7:
+      {
+        string tableid;
+        system("clear");
 
+        do
+        {
+          cout<<"Please enter a table ID"<<endl;
+          cin>>tableid;
+          for(int i=0;i<deli.getsize();i++)
+          {
+            if (table[i].getID()==tableid)
+            {
+              mob=false;
+            }
+          }
+        }while(mob);
+
+        if(mob==false)
+        bill.Control(tableid);
+
+        break;
+      case 8:
+      cout<<"Exited successfully"<<endl<<endl;
+      break;
+      default:
+      cout<<"Not Valid Command"<<endl;
+      break;
 
     }
     delete[] table;
