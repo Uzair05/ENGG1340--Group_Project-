@@ -10,7 +10,6 @@ string ConvertInputTime(int tim);
 /*Accept Integer int minutes since 00:00 */
 /*converts it into a string in 24 hour format*/
 
-
 void SetBooking(string ID,string tim);
 /*Accepts a manual input of time in 24 hours format*/
 /*creates an unsorted list of bookings*/
@@ -22,7 +21,7 @@ void CancelBooking(string ID,string tim);
 /*Accepts a manual input of time in 24 hours format*/
 /*removes the booking from the bookings list*/
 
-void CheckOverTime(string ID,string tim);
+void CheckOverTime(string tim);
 
 /*Accepts a manual input of time in 24 hours format*/
 

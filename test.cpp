@@ -8,7 +8,6 @@ using namespace std;
 void CancelBooking(string ID,string tim){
   ifstream fin;
   string temp;
-  string temp2;
   string identity,clock;
 
   ofstream fout;
@@ -58,9 +57,47 @@ void CancelBooking(string ID,string tim){
   }
 }
 
+int ConvertTimeInput(string tim){
+  string hours,minutes;
+  hours=tim.substr(0,2);
+  minutes=tim.substr(3,2);
+  int rslt;
+  rslt=(stoi(hours)*60)+stoi(minutes);
+  return rslt;
+}
+
+void CheckOverTime(string tim){
+  ifstream fin;
+  fin.open("Bookings.txt");
+  if (fin.fail()){
+    //system("clear");
+    cout<<"\aUnable to access Bookings.txt"<<endl;
+    exit(1);
+  }
+
+  string identity,clock;
+  string temp;
+
+  while(getline(fin,temp)){
+    istringstream iss(temp);
+    iss>>identity>>clock;
+    if (ConvertTimeInput(tim)-(ConvertTimeInput(clock))>=45){
+      cout<<"\aBooking "<<identity<<" "<<clock<<" is overdue"<<endl;
+      cout<<"Do you want to cancel it ? (Y/N)"<<endl;
+      char choice;
+      cin >> choice;
+      if (choice=='Y'){
+        CancelBooking(identity,clock);
+      }else{
+        cout<<"Booking not canceled\n\n"<<endl;
+      }
+    }
+  }
+}
+
 int main(){
 
-CancelBooking("Umair","13:00");
+  CheckOverTime("13:45");
 
 return 0;
 }
