@@ -22,13 +22,16 @@ public:
 
 class Functions{
 public:
-  void LoadTables(RTables a[]);
   int getsize();
+  void LoadTables(RTables a[]);
   void ReSetTables();
-  string recommend(RTables a[],int NumberofGuests, int size);
-  void OccupyTable(RTables a[],string ID, int size);
-  void ReleaseTable(RTables a[],string ID, int size);
-  bool CheckAvailability(RTables a[],string ID, int size);
+  string recommend(RTables a[],int NumberofGuests,string tim /*for time*/ );
+  void OccupyTable(RTables a[],string ID);
+  void ReleaseTable(RTables a[],string ID);
+  bool CheckAvailability(RTables a[],string ID);
+  void BOOK(RTables a[],int NumberofGuests,string tim /*for time*/ );
+  void CANCELBooking(string ID,string tim /*for time*/ );
+  bool OverTime(string tim);
 };
 
 #endif

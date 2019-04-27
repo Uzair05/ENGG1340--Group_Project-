@@ -3,6 +3,7 @@
 #include <string>
 #include "TableTop.h"
 #include "RestaurantTables.h"
+#include "Reservation.h"
 #include <fstream>
 #include <sstream>
 #include <stdlib.h>
@@ -11,7 +12,7 @@ using namespace std;
 const string FileName = "TableStore.txt";
 const string NumberOfTables = "NumberOfTables.txt";
 
-
+time rsrv;
 
 
 void alert(string message,string head){
@@ -117,7 +118,8 @@ foi.close();
 }
 
 
-string Functions::recommend(RTables a[],int NumberofGuests, int size/*holds the total number of tables*/){
+string Functions::recommend(RTables a[],int NumberofGuests, string tim /*The time the guest wishes to book*/ ){
+  int size = getsize();
   struct MoodyJazz{
     string ID="";
     int seat=0;
@@ -125,7 +127,7 @@ string Functions::recommend(RTables a[],int NumberofGuests, int size/*holds the 
   MoodyJazz *pop = new MoodyJazz[size];
   bool flag=false;
   for(int i=0;i<size;++i){
-    if ((a[i].getNofSeats()==NumberofGuests)&&(!(a[i].getIsOccupied()))){
+    if (((a[i].getNofSeats()==NumberofGuests)&&(!(a[i].getIsOccupied())))&&(rsrv.FindTime(a[i].getID(),tim))){
       flag=true;
       return a[i].getID();
       break;
@@ -134,7 +136,7 @@ string Functions::recommend(RTables a[],int NumberofGuests, int size/*holds the 
   int count=0;
   if (!(flag)){
     for(int i=0;i<size;++i){
-      if ((a[i].getNofSeats()>=NumberofGuests)&&(!(a[i].getIsOccupied()))){
+      if ((a[i].getNofSeats()>=NumberofGuests)&&(!(a[i].getIsOccupied())))&&(rsrv.FindTime(a[i].getID(),tim))){
         pop[count].ID=a[i].getID();
         pop[count].seat=a[i].getNofSeats();
         count+=1;
@@ -142,7 +144,7 @@ string Functions::recommend(RTables a[],int NumberofGuests, int size/*holds the 
     }
   }
   if (count==0){
-    return "NoTables";
+    return "NoTable"; /*exit clause*/
   }else{
     MoodyJazz lowest;
     lowest.ID=pop[0].ID;
@@ -159,13 +161,17 @@ string Functions::recommend(RTables a[],int NumberofGuests, int size/*holds the 
 }
 
 
-void Functions::OccupyTable(RTables a[],string ID, int size){
+void Functions::OccupyTable(RTables a[],string ID, string tim /*time table was booked for*/){
+  /*assumes table was occupied on time*/
+  int size = getsize();
   bool failflag=true;
   for(int i=0;i<size;++i){
     if (a[i].getID()==ID){
       failflag=false;
       if (!(a[i].getIsOccupied())){
         a[i].setOccupied(true);
+        /*when a table is seated then it is removed from the bookings*/
+        rsrv.CancelBooking(a[i].getID(),tim);
         alert("Table has been occupied","OccupyTable");
         break;
       }else{
@@ -179,7 +185,8 @@ void Functions::OccupyTable(RTables a[],string ID, int size){
   }
 }
 
-void Functions::ReleaseTable(RTables a[],string ID, int size){
+void Functions::ReleaseTable(RTables a[],string ID){
+  int size = getsize();
   bool failflag=true;
   for(int i=0;i<size;++i){
     if (a[i].getID()==ID){
@@ -207,4 +214,27 @@ bool Functions::CheckAvailability(RTables a[],string ID, int size){
     }
   }
   return flag;
+}
+
+void Functions::BOOK(RTables a[],int NumberofGuests,string tim /*for time*/ ){
+  int time = rsrv.ConvertTimeInput(tim);
+  --time;
+  string TableID="";
+  do{
+    time++;
+    TableID=recommend(a,NumberofGuests,rsrv.ConvertInputTime(time));
+  }while((TableID=="NoTable")&&(time<=rsrv.ConvertTimeInput(23:59)));
+  cout<<"Do you wish to book table: "<<TableID<<" at "<<time<<" (Y/N)"<<endl;
+  char choice;
+  cin>>choice;
+  if (choice=='Y'){
+    rsrv.SetBooking(TableID,time);
+  }
+}
+void Functions::CANCELBooking(string ID,string tim /*for time*/ ){
+  rsrv.CancelBooking(ID,tim);
+}
+
+bool Functions::OverTime(string tim){
+  rsrv.CheckOverTime(tim);
 }
