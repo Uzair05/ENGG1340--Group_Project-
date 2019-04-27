@@ -19,8 +19,8 @@ int PresentOption()
   cout<<"3. Release A Booking"<<endl;
   cout<<"4. Occupy A Table"<<endl;
   cout<<"5. Release A Table"<<endl;
-  cout<<"6. Billing and Ordering Management"<<endl;
-  cout<<"7. Exit"<<endl;
+  cout<<"8. Billing and Ordering Management"<<endl;
+  cout<<"9. Exit"<<endl;
   cin>>choice;
   return choice;
 }
@@ -47,7 +47,7 @@ int main()
     RTables* table = new RTables[deli.getsize()];
     deli.LoadTables(table);
     bool mob = true;
-    
+
     switch(choice)
     {
         case 6:
