@@ -31,7 +31,7 @@ public:
   bool CheckAvailability(RTables a[],string ID);
   void BOOK(RTables a[],int NumberofGuests,string tim /*for time*/ );
   void CANCELBooking(string ID,string tim /*for time*/ );
-  bool OverTime(string tim);
+  void OverTime(string tim);
 };
 
 #endif
