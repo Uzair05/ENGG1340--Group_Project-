@@ -1,13 +1,14 @@
 #include <iostream>
 #include <string>
 #include <fstream>
+
 using namespace std;
 
 void SwapFunctions();
 void SwaptoAllDishes();
 int RemovingSameTableIdfromOrder(string tableid);
 
-void InitialiseFiles()
+void Billing::InitialiseFiles()
 {
     ifstream alldish("alldishesordered.txt");
     ifstream dishes("dishes.txt");
@@ -38,7 +39,7 @@ void InitialiseFiles()
     }
 }
 
-void PrintMenu()
+void Billing::PrintMenu()
 {
   ifstream fin("dishes.txt");
   string s;
@@ -57,7 +58,7 @@ void PrintMenu()
   fin.close();
 }
 
-void AddDish(int n)
+void Billing::AddDish(int n)
 {
   int flag=1,flag1=1,flag2=1,price;string line,name,dishname;
 
@@ -116,7 +117,7 @@ void AddDish(int n)
   fout.close();
 }
 
-void AppendBillingOfTable(string tableid)
+void Billing::AppendBillingOfTable(string tableid)
 {
   string dishname,dish1,dish,cost;int head=13,n,totalcost=0,counter=13,flag=0,flag1=1,flag2=1,flag3=1,tablenotpresent=1;
 
@@ -209,7 +210,7 @@ void AppendBillingOfTable(string tableid)
 
 
 
-void SwapTemp2toOrder()
+void Billing::SwapTemp2toOrder()
 {
   ofstream fout("order.txt");
   ifstream fin("temp2.txt");
@@ -225,7 +226,7 @@ void SwapTemp2toOrder()
   fout.close();
 }
 
-void MakeOrderUnique(int n)
+void Billing::MakeOrderUnique(int n)
 {
   ifstream fin("order.txt");
   ofstream fout("temp2.txt");
@@ -255,7 +256,7 @@ void MakeOrderUnique(int n)
   SwapTemp2toOrder();
 }
 
-int RemovingSameTableIdfromOrder(string tableid)
+int Billing::RemovingSameTableIdfromOrder(string tableid)
 {
   ifstream order("order.txt");
 
@@ -275,7 +276,7 @@ int RemovingSameTableIdfromOrder(string tableid)
   return prev;
 }
 
-void FormingOrder(string tableid)
+void Billing::FormingOrder(string tableid)
 {
   InitialiseFiles();//adds dishes which arent already in alldishesordered.txt
 
@@ -356,7 +357,7 @@ void FormingOrder(string tableid)
 
 }
 
-void SwapFunctions()
+void Billing::SwapFunctions()
 {
   ifstream alldishes("alldishesordered.txt");
   ifstream temp("temp.txt");
@@ -397,7 +398,7 @@ void SwapFunctions()
 
 }
 
-void SwaptoAllDishes()
+void Billing::SwaptoAllDishes()
 {
   ofstream fout("alldishesordered.txt");
   ifstream fin("swap.txt");
@@ -410,7 +411,7 @@ void SwaptoAllDishes()
   }
 }
 
-void PrintContents()
+void Billing::PrintContents()
 {
   cout<<"1. Add Dishes."<<endl;
   cout<<"2. Order food."<<endl;
@@ -421,7 +422,7 @@ void PrintContents()
 
 }
 
-void SuccessRate()
+void Billing::SuccessRate()
 {
   ifstream alldishes("alldishesordered.txt");
   ofstream success("dishsuccess.txt");
@@ -445,7 +446,7 @@ void SuccessRate()
   }
 }
 
-int main()
+void Billing::Control(string tableid)
 {
   PrintContents();
 
@@ -466,13 +467,13 @@ int main()
     {
       system("clear");
       cout<<endl;
-      FormingOrder("123");
+      FormingOrder(tableid);
       cout<<endl;
     }
     else if(n==3)
     {
       system("clear");
-      AppendBillingOfTable("123");
+      AppendBillingOfTable(tableid);
       cout<<"Your bill is ready!"<<endl;
       cout<<endl;
 
