@@ -122,6 +122,7 @@ foi.close();
 
 
 string Functions::recommend(RTables a[],int NumberofGuests, string tim /*The time the guest wishes to book*/ ){
+  string rslt="";
   int size = getsize();
   struct MoodyJazz{
     string ID="";
@@ -132,7 +133,7 @@ string Functions::recommend(RTables a[],int NumberofGuests, string tim /*The tim
   for(int i=0;i<size;++i){
     if (((a[i].getNofSeats()==NumberofGuests)&&(!(a[i].getIsOccupied())))&&(rsrv.FindTime(a[i].getID(),tim))){
       flag=true;
-      return a[i].getID();
+      rslt=a[i].getID();
       break;
     }
 }
@@ -143,6 +144,7 @@ string Functions::recommend(RTables a[],int NumberofGuests, string tim /*The tim
         pop[count].ID=a[i].getID();
         pop[count].seat=a[i].getNofSeats();
         count+=1;
+
       }
     }
   }
@@ -158,9 +160,11 @@ string Functions::recommend(RTables a[],int NumberofGuests, string tim /*The tim
         lowest.seat=pop[i].seat;
       }
     }
-    return lowest.ID;
+    rslt=lowest.ID;
   }
+
   delete[] pop;
+  return rslt;
 }
 
 
@@ -228,7 +232,7 @@ void Functions::BOOK(RTables a[],int NumberofGuests,string tim /*for time*/ ){
     time++;
     TableID=recommend(a,NumberofGuests,rsrv.ConvertInputTime(time));
   }while((TableID=="NoTable")&&(time<=rsrv.ConvertTimeInput("23:59")));
-  cout<<"Do you wish to book table: "<<TableID<<" at "<<time<<" (Y/N)"<<endl;
+  cout<<"Do you wish to book table: "<<TableID<<" at "<<rsrv.ConvertInputTime(time)<<" (Y/N)"<<endl;
   char choice;
   cin>>choice;
   if (choice=='Y'){

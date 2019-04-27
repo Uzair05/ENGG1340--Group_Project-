@@ -443,7 +443,7 @@ void Billing::SuccessRate()
   while(getline(alldishes,line))
   {
     dishesordered=stod(line.substr(line.find('-')+1,line.length()));
-    success<<line.substr(0,line.find('-'))<<"-"<<(double)(dishesordered/totaldishesordered)<<"%"<<endl;
+    success<<line.substr(0,line.find('-'))<<"-"<<(double)(dishesordered/totaldishesordered)*100<<"%"<<endl;
   }
 }
 

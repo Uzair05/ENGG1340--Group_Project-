@@ -42,7 +42,7 @@ int main()
   else if (a=='N')
   {
     int choice;
-    choice = PresentOption();
+    char wait;
     RTables* table = new RTables[deli.getsize()];
     deli.LoadTables(table);
 
@@ -53,6 +53,7 @@ int main()
 
 
     do{
+    choice = PresentOption();
     switch (choice)
     {
       case 1:
@@ -61,30 +62,20 @@ int main()
       cout<<"Please enter booking time"<<endl;
       cin>>Time;
       cout<<"Recommended Table: "<<deli.recommend(table,NumberofGuests,Time)<<endl;
+      cout<<"Press any button to exit (random character)"<<endl;
+      cin>>wait; /*Allows wait for user to see*/
       break;
       case 2:
       cout<<"Please enter number of guests"<<endl;
       cin>>NumberofGuests;
-      cout<<"Please enter booking time"<<endl;
+      cout<<"Please Enter Time of Booking in HH:MM 24 hour format"<<endl;
       cin>>Time;
       deli.BOOK(table,NumberofGuests,Time);
       break;
       case 3:
-      mob=true;
-      do{
-        cout<<"please enter table ID"<<endl;
-        cin>>TableIdentity;
-        if (!(mob)){
-          cout<<"Error: ID not found, please enter valid ID"<<endl;
-        }
-        mob=false;
-        for(int i=0;i<deli.getsize();i++){
-          if (table[i].getID()==TableIdentity){
-            mob=true;
-          }
-        }
-      }while(!(mob));
-      cout<<"Please Enter Time"<<endl;
+      cout<<"please enter table ID"<<endl;
+      cin>>TableIdentity;
+      cout<<"Please Enter Time of Booking in HH:MM 24 hour format"<<endl;
       cin>>Time;
       deli.CANCELBooking(TableIdentity,Time);
       break;
@@ -103,7 +94,7 @@ int main()
           }
         }
       }while(!(mob));
-      cout<<"Please Enter Time of Booking"<<endl;
+      cout<<"Please Enter Time of Booking in HH:MM 24 hour format"<<endl;
       cin>>Time;
       deli.OccupyTable(table,TableIdentity,Time);
       break;
@@ -125,7 +116,7 @@ int main()
       deli.ReleaseTable(table,TableIdentity);
       break;
       case 6:
-      cout<<"Please Enter Current time (HH:MM)"<<endl;
+      cout<<"Please Enter Current Time in HH:MM 24 hour format"<<endl;
       cin>>Time;
       deli.OverTime(Time);
       break;

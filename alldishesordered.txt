@@ -1,2 +1,6 @@
-Beef-1
-Chicken-1
+Beef-2
+Chicken-3
+Pizza-1
+Mutton-0
+Macarro-0
+Killin_spree-1

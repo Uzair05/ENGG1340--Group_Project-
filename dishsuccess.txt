@@ -1,2 +1,6 @@
-Beef-0.5%
-Chicken-0.5%
+Beef-0.285714%
+Chicken-0.428571%
+Pizza-0.142857%
+Mutton-0%
+Macarro-0%
+Killin_spree-0.142857%

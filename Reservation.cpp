@@ -8,8 +8,8 @@ using namespace std;
 
 int Timer::ConvertTimeInput(string tim){
   string hours,minutes;
-  hours=tim.substr(0,2);
-  minutes=tim.substr(3,2);
+  hours=tim.substr(0,tim.find(':'));
+  minutes=tim.substr((tim.find(':')+1),tim.length());
   int rslt;
   rslt=(stoi(hours)*60)+stoi(minutes);
   return rslt;
@@ -17,8 +17,14 @@ int Timer::ConvertTimeInput(string tim){
 
 string Timer::ConvertInputTime(int tim){
   string hours,minutes;
-  hours=to_string(tim/60);
-  minutes=to_string(tim%60);
+  if ((tim/60)<10){
+    hours+="0";
+  }
+  hours+=to_string(tim/60);
+  if ((tim%60)<10){
+    minutes+="0";
+  }
+  minutes+=to_string(tim%60);
   string reslt;
   reslt=hours+":"+minutes;
   return reslt;
@@ -121,6 +127,8 @@ void Timer::CheckOverTime(string tim){
         CancelBooking(identity,clock);
       }else{
         cout<<"Booking not canceled\n\n"<<endl;
+        cout<<"\nPress any button to exit (random character)"<<endl;
+        cin>>wait; /*Allows wait for user to see*/
       }
     }
   }
@@ -194,6 +202,8 @@ bool Timer::FindTime(string ID,string tim){
       }
     }
     delete[] watch;
+  }else{
+    rsp=true;
   }
   return rsp;
 }
