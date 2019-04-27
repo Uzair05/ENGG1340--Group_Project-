@@ -26,7 +26,7 @@ public:
   void LoadTables(RTables a[]);
   void ReSetTables();
   string recommend(RTables a[],int NumberofGuests,string tim /*for time*/ );
-  void OccupyTable(RTables a[],string ID);
+  void OccupyTable(RTables a[],string ID,string tim);
   void ReleaseTable(RTables a[],string ID);
   bool CheckAvailability(RTables a[],string ID);
   void BOOK(RTables a[],int NumberofGuests,string tim /*for time*/ );

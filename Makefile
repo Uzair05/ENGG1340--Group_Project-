@@ -1,4 +1,4 @@
-RestaurantTables.o:RestaurantTables.cpp RestaurantTables.h TableTop.h
+RestaurantTables.o:RestaurantTables.cpp RestaurantTables.h TableTop.h Reservation.h billing.h
 	g++ --pedantic-errors -std=c++11 -c $<
 Reservation.o: Reservation.cpp Reservation.h
 	g++ --pedantic-errors -std=c++11 -c $<

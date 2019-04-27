@@ -1,7 +1,14 @@
 #ifndef Resrv_H
 #define Resrv_H
 
-class time{
+#include <iostream>
+#include <string>
+#include <fstream>
+#include <sstream>
+#include "Reservation.h"
+using namespace std;
+
+class Timer{
 public:
 int ConvertTimeInput(string tim);
 /*Accepts a manual input of time in 24 hours format*/

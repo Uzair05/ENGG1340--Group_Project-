@@ -6,7 +6,7 @@
 using namespace std;
 
 
-int time::ConvertTimeInput(string tim){
+int Timer::ConvertTimeInput(string tim){
   string hours,minutes;
   hours=tim.substr(0,2);
   minutes=tim.substr(3,2);
@@ -15,7 +15,7 @@ int time::ConvertTimeInput(string tim){
   return rslt;
 }
 
-string time::ConvertInputTime(int tim){
+string Timer::ConvertInputTime(int tim){
   string hours,minutes;
   hours=to_string(tim/60);
   minutes=to_string(tim%60);
@@ -24,7 +24,7 @@ string time::ConvertInputTime(int tim){
   return reslt;
 }
 
-void time::SetBooking(string ID,string tim){
+void Timer::SetBooking(string ID,string tim){
   ofstream foi;
   foi.open("Bookings.txt",ios::app);
   if (foi.fail()){
@@ -40,7 +40,7 @@ void time::SetBooking(string ID,string tim){
   }
 }
 
-void time::CancelBooking(string ID,string tim){
+void Timer::CancelBooking(string ID,string tim){
   ifstream fin;
   string temp;
   string CustomerName;
@@ -95,7 +95,7 @@ void time::CancelBooking(string ID,string tim){
   }
 }
 
-void time::CheckOverTime(string tim){
+void Timer::CheckOverTime(string tim){
 
   ifstream fin;
   fin.open("Bookings.txt");
@@ -127,7 +127,7 @@ void time::CheckOverTime(string tim){
   fin.close();
 }
 
-bool time::FindTime(string ID,string tim){
+bool Timer::FindTime(string ID,string tim){
   bool rsp=false;
   ifstream fin;
   fin.open("Bookings.txt");

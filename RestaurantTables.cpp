@@ -12,7 +12,7 @@ using namespace std;
 const string FileName = "TableStore.txt";
 const string NumberOfTables = "NumberOfTables.txt";
 
-time rsrv;
+Timer rsrv;
 
 
 void alert(string message,string head){
@@ -98,13 +98,13 @@ if (foil.fail()){
   for(int i=0;i<num;++i){
     cout<<"Enter Table ID [three characters long]"<<endl;
     cin>>value1;
-    if (value1.lenght()>3){
+    if (value1.length()>3){
       value1=value1.substr(0,3);
     }
     cout<<"Enter number of seats of table:\t";
     cin>>value2;
     foil<<value1<<" ";
-    foil<<setfill('0')<<setw(3)<<value2<<endl;
+    foil<<value2<<endl;
   }
   system("clear");
 }
@@ -139,7 +139,7 @@ string Functions::recommend(RTables a[],int NumberofGuests, string tim /*The tim
   int count=0;
   if (!(flag)){
     for(int i=0;i<size;++i){
-      if ((a[i].getNofSeats()>=NumberofGuests)&&(!(a[i].getIsOccupied())))&&(rsrv.FindTime(a[i].getID(),tim))){
+      if ((a[i].getNofSeats()>=NumberofGuests)&&(!(a[i].getIsOccupied()))&&(rsrv.FindTime(a[i].getID(),tim))){
         pop[count].ID=a[i].getID();
         pop[count].seat=a[i].getNofSeats();
         count+=1;
@@ -209,7 +209,8 @@ void Functions::ReleaseTable(RTables a[],string ID){
   }
 }
 
-bool Functions::CheckAvailability(RTables a[],string ID, int size){
+bool Functions::CheckAvailability(RTables a[],string ID){
+  int size=getsize();
   bool flag=false;
   for(int i=0;i<size;++i){
     if ((a[i].getID()==ID)&&(!(a[i].getIsOccupied()))){
@@ -226,12 +227,12 @@ void Functions::BOOK(RTables a[],int NumberofGuests,string tim /*for time*/ ){
   do{
     time++;
     TableID=recommend(a,NumberofGuests,rsrv.ConvertInputTime(time));
-  }while((TableID=="NoTable")&&(time<=rsrv.ConvertTimeInput(23:59)));
+  }while((TableID=="NoTable")&&(time<=rsrv.ConvertTimeInput("23:59")));
   cout<<"Do you wish to book table: "<<TableID<<" at "<<time<<" (Y/N)"<<endl;
   char choice;
   cin>>choice;
   if (choice=='Y'){
-    rsrv.SetBooking(TableID,time);
+    rsrv.SetBooking(TableID,rsrv.ConvertInputTime(time));
   }
 }
 void Functions::CANCELBooking(string ID,string tim /*for time*/ ){

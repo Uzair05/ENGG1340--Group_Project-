@@ -48,24 +48,26 @@ int main()
 
     string TableIdentity,Time;
     int NumberofGuests;
-    bool mob
+    bool mob;
+    string tableid;
 
 
-    switch(choice)
+    do{
+    switch (choice)
     {
       case 1:
       cout<<"Please enter number of guests"<<endl;
-      cin>>NumberOfGuests;
+      cin>>NumberofGuests;
       cout<<"Please enter booking time"<<endl;
       cin>>Time;
       cout<<"Recommended Table: "<<deli.recommend(table,NumberofGuests,Time)<<endl;
       break;
       case 2:
       cout<<"Please enter number of guests"<<endl;
-      cin>>NumberOfGuests;
+      cin>>NumberofGuests;
       cout<<"Please enter booking time"<<endl;
       cin>>Time;
-      deli.BOOK(table,NumberOfGuests,Time);
+      deli.BOOK(table,NumberofGuests,Time);
       break;
       case 3:
       mob=true;
@@ -101,7 +103,9 @@ int main()
           }
         }
       }while(!(mob));
-      deli.OccupyTable(table,TableIdentity);
+      cout<<"Please Enter Time of Booking"<<endl;
+      cin>>Time;
+      deli.OccupyTable(table,TableIdentity,Time);
       break;
       case 5:
       mob=true;
@@ -123,10 +127,9 @@ int main()
       case 6:
       cout<<"Please Enter Current time (HH:MM)"<<endl;
       cin>>Time;
-      deli.CheckOverTime(Time);
+      deli.OverTime(Time);
       break;
       case 7:
-      string tableid;
       system("clear");
 
       do
@@ -141,19 +144,16 @@ int main()
           }
         }
       }while(mob);
-
       if(mob==false)
       bill.Control(tableid);
       break;
-      case 8:
-      cout<<"Exited successfully"<<endl<<endl;
-      break;
+
       default:
-      cout<<"Not Valid Command"<<endl;
       break;
-      
+
     }
-    delete[] table;
+  }while((choice<=7)&&(choice>=1));
+  delete[] table;
   }
 
 }
