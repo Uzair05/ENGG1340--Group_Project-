@@ -1,0 +1,11 @@
+Biryani-5
+Beef-10
+Noodles-23
+Coke-3
+Sprite-1
+Milk-0
+Shake-0
+Chicken-0
+Dumplings-0
+Wontons-0
+Milkshake-0
