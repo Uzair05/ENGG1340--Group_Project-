@@ -81,7 +81,7 @@ void Functions::LoadTables(RTables a[]){
 
 void Functions::ReSetTables(){
 string value1="";
-int value2=0;
+string value2="";
 int i=0;
 int num=0;
 
@@ -96,9 +96,12 @@ if (foil.fail()){
   cin>>num;
   system("clear");
   for(int i=0;i<num;++i){
-    cout<<"Table ID: "<<setfill('0')<<setw(3)<<i;
-    value1<<to_string(i);
-    cout<<"enter number of seats of table:\t";
+    cout<<"Enter Table ID [three characters long]"<<endl;
+    cin>>value1;
+    if (value1.lenght()>3){
+      value1=value1.substr(0,3);
+    }
+    cout<<"Enter number of seats of table:\t";
     cin>>value2;
     foil<<value1<<" ";
     foil<<setfill('0')<<setw(3)<<value2<<endl;
