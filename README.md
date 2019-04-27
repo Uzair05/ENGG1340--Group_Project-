@@ -54,7 +54,8 @@ The features of program are listed as such:
 The functions have been divided into individual files.
 - Billing.cpp handles the management of billing and menu ordering.
 - RestaurantTables.cpp handles the functions
-- 
+- Reservation.cpp handles the Reservation and booking
+- FamilyDeli.cpp is the main file
 
 ##Instructions To Run
 - To construct code
