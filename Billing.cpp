@@ -46,9 +46,12 @@ void PrintMenu()
   if (fin.fail())
   exit(0);
 
+  int number=1;
+
   while(getline(fin,s))
   {
-    cout<<s<<endl;
+    cout<<number<<"."<<s<<endl;
+    number++;
   }
 
   fin.close();
