@@ -49,3 +49,15 @@ The features of program are listed as such:
 - Made a Proper GUI
 - Used MySql or some database software to enhance features of the Software. for example **finding a table with a window seat**
 - Had properly drawn out a map/Pert chart to help coordinate with teammates.
+
+##Division of Functions
+The functions have been divided into individual files.
+- Billing.cpp handles the management of billing and menu ordering.
+- RestaurantTables.cpp handles the functions
+- 
+
+##Instructions To Run
+- To construct code
+`make FamilyDeli`
+- To run
+`./FamilyDeli`
