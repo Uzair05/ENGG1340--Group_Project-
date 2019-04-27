@@ -243,6 +243,6 @@ void Functions::CANCELBooking(string ID,string tim /*for time*/ ){
   rsrv.CancelBooking(ID,tim);
 }
 
-bool Functions::OverTime(string tim){
+void Functions::OverTime(string tim){
   rsrv.CheckOverTime(tim);
 }
