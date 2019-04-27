@@ -96,6 +96,7 @@ void CancelBooking(string ID,string tim){
 }
 
 void CheckOverTime(string tim){
+
   ifstream fin;
   fin.open("Bookings.txt");
   if (fin.fail()){
@@ -127,20 +128,7 @@ void CheckOverTime(string tim){
 }
 
 bool FindTime(string ID,string tim){
-  bool response=false;/*
-  holds the valuse which is to be returned*/
-
-  string CustomerName,identity,clock;
-  string temp=""; /*temporary value holder*/
-  int counter=0; /*counts number of positive hits*/
-
-  struct MoodyJazz{
-    /*allows for easier sorting*/
-    string CustomerName;
-    string identity;
-    int watch;
-  };
-
+  bool rsp=false;
   ifstream fin;
   fin.open("Bookings.txt");
   if (fin.fail()){
@@ -148,77 +136,75 @@ bool FindTime(string ID,string tim){
     cout<<"\aUnable to access Bookings.txt"<<endl;
     exit(1);
   }
+  string customer,identity,clock;
+  string temp;
+  int count=0;
   while(getline(fin,temp)){
     istringstream iss(temp);
-    iss>>CustomerName>>identity>>clock;
+    iss>>customer>>identity>>clock;
     if (identity==ID){
-      counter+=1;
+      count++;
     }
   }
   fin.close();
+  if (count>0){
+    ifstream foil;
+    foil.open("Bookings.txt");
+    if (foil.fail()){
+      system("clear");
+      cout<<"\aUnable to access Bookings.txt"<<endl;
+      exit(1);
+    }
 
+    int* watch = new int[count];
 
-  MoodyJazz data[32];
-
-  ifstream foilin;
-  foilin.open("Bookings.txt");
-  if (foilin.fail()){
-    system("clear");
-    cout<<"\aUnable to access Bookings.txt"<<endl;
-    exit(1);
-  }else{
-    int m=-1;
-    while(getline(fin,temp)){
-      m+=1;
+    int m=0;
+    while(getline(foil,temp)){
       istringstream iss(temp);
-      iss>>CustomerName>>identity>>clock;
-      data[m].CustomerName=CustomerName;
-      data[m].identity=identity;
-      data[m].watch = ConvertTimeInput(clock);
+      iss>>customer>>identity>>clock;
+      if (identity==ID){
+        watch[m]=ConvertTimeInput(clock);
+        m++;
+      }
     }
-    bool IsStorted =false;
-    while(!(IsStorted)){
-      /*bubble sort*/
-      IsStorted=true;
-      for(int i=0;i<(counter-1);i++){
-        if (data[m].watch>data[m+1].watch){
-          IsStorted=false;
-          MoodyJazz temp;
-          temp.CustomerName=data[m].CustomerName;
-          temp.identity=data[m].identity;
-          temp.watch=data[m].watch;
-          data[m].CustomerName=data[m+1].CustomerName;
-          data[m].identity=data[m+1].identity;
-          data[m].watch=data[m+1].watch;
-          data[m+1].CustomerName=temp.CustomerName;
-          data[m+1].identity=temp.identity;
-          data[m+1].watch=temp.watch;
-          /*switches values*/
+    bool sortz=false;
+    int holder=0;
+    while(!(sortz)){
+      sortz=true;
+      for(int i=0;i<(count-1);i++){
+        if(watch[i]>watch[i+1]){
+          holder=watch[i];
+          watch[i]=watch[i+1];
+          watch[i+1]=holder;
+          sortz=false;
         }
       }
     }
-    if ((ConvertTimeInput(tim)-data[counter-1].watch)>=45){
-      response=true;
-    }else if((data[0].watch-ConvertTimeInput(tim))>=45){
-      response=true;
-    }else{
-      for(int i=0;i<(counter-1);++i){
-        if (((data[i].watch-data[i+1].watch)>=(45*2))&&((ConvertTimeInput(tim)-data[i].watch)>=45)){
-          response=true;
-          /*this point can be modified for another function*/
-        }
-      }
-    }
-  }
-  foilin.close();
-  return response;
-}
 
+    if ((ConvertTimeInput(tim)-watch[count-1])>=45){
+      rsp=true;
+    }else if((watch[0]-ConvertTimeInput(tim))>=45){
+      rsp=true;
+    }else{
+      for(int i=0;i<(count-1);i++){
+        if (((ConvertTimeInput
+          (tim)-watch[i])>=45)&&((watch[i+1]-ConvertTimeInput(tim))>=45)){
+          rsp=true;
+          break;
+        }
+      }
+    }
+
+    delete[] watch;
+  }
+  return rsp;
+}
 
 int main(){
   if(FindTime("T16","13:00")){
     cout<<"boi"<<endl;
-  }else if(!(FindTime("T16","13:00"))){
+  }else if(!(FindTime("T16","13:0
+  0"))){
     cout<<"down"<<endl;
   }
   return 0;
